@@ -128,6 +128,9 @@ Let's say you have a `shipping_address` key on many of you forms and want to out
 {{ address.city }}, {{ address.state }} {{ address.postal_code }}{% endif %}
 ```
 
+### Deprecated field
+
+The `custom_fields` variable which is now a hash used to be called `fields` and exposed the fields as an array. We are maintaining this for backward compaitibility but all new development should use the newer `custom_fields` variable.
 
 
 # Liquid Filters
