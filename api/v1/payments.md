@@ -1,7 +1,5 @@
 # Payments
 
-> All your payments are belong to us.
-
 ## The Payment Object
 
 ```json
