@@ -5,13 +5,14 @@ Welcome!
 
 ## MoonClerk API
 
-[API Documentation](https://github.com/moonclerk/developer/blob/master/api/README.md)
+* [API Documentation](https://github.com/moonclerk/developer/blob/master/api/README.md)
 
 
 ## Notification Email Templating Using Liquid
 
-[Liquid Variables & Filters](https://github.com/moonclerk/developer/blob/master/liquid/variables.md)
-[Liquid Examples](https://github.com/moonclerk/developer/blob/master/liquid/examples.md)
+* [Liquid Variables & Filters](https://github.com/moonclerk/developer/blob/master/liquid/variables.md)
+* [Liquid Examples](https://github.com/moonclerk/developer/blob/master/liquid/examples.md)
+
 
 
 ## Help us make it better
