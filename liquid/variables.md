@@ -99,34 +99,7 @@ Here is a sample of the structure of some custom field data:
   }
 ```
 
-### Looping over fields
-
-When looping through fields, the actual variable name will be determined
-by how you name the for loop in the template. In this example, the variable
-will be called `field`.
-
-```Liquid
-{% for field in payment.custom_fields %}
-{{ field[1].title }}: {{ field[1].response }}
-{% endfor %}
-```
-
-Liquid uses the `[1]` to access the value of the field hash.
-
-
-### Accessing a specific field for display
-
-Another way to deal with custom field is to access a specific field. It is important to remember that the notification template is across all forms. If you write code to access a certain custom field you will want it to degrade nicely if the field doesn't exist.
-
-Let's say you have a `shipping_address` key on many of you forms and want to output it on the payment successful notification to the account holder.
-
-```Liquid
-{% if payment.custom_fields.shipping_address %}
-{% assign address = payment.custom_fields.shipping_address.address %}
-{{ address.line1 }}{% if address.line2 %}
-{{ address.line2 }}{% endif %}
-{{ address.city }}, {{ address.state }} {{ address.postal_code }}{% endif %}
-```
+[Browse examples of how to use custom fields within a template](https://github.com/moonclerk/developer/blob/master/liquid/examples.md#using-custom-fields).
 
 ### Deprecated field
 
