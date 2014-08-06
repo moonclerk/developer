@@ -13,8 +13,6 @@ To make a request for all the payment forms, you'd append the forms index path t
 curl -H "Authorization: Token token=[API Key]" -H "Accept: application/vnd.moonclerk+json;version=1" https://api.moonclerk.com/forms
 ```
 
-More on the token stuff later.
-
 
 ## Authentication
 
@@ -31,7 +29,7 @@ You will pass both the version and the format (JSON only) in the **Accept** head
 
 ## Handling errors
 
-If there is problem, MoonClerk will render a 5xx error. `500` means that the app is entirely down, but you might also see `502 Bad Gateway`, `503 Service Unavailable`, or `504 Gateway Timeout`. It's your responsibility in all of these cases to retry your request later.
+If there is a problem, MoonClerk will render a 5xx error. `500` means that the app is entirely down, but you might also see `502 Bad Gateway`, `503 Service Unavailable`, or `504 Gateway Timeout`. It's your responsibility in all of these cases to retry your request later.
 
 ## Paging
 
