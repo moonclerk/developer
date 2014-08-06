@@ -25,7 +25,7 @@
 - `plan.interval` - week, month or year
 - `plan.interval_count` - 1 or more
 - `plan.frequency` - interval phrase, i.e. "every 3 months”
-- `plan.fields` - An Array of custom field responses based on the form. See `Fields` section.
+- `plan.custom_fields` - A Hash of custom field responses based on the form. See [Custom Fields](#custom-fields) section.
 - `plan.checkout.date` - The date of the checkout
 - `plan.checkout.amount_due` - The total amount of the first payment. This is the big number the payer sees when checking out. Amount is in cents.
 - `plan.checkout.subtotal` - The amount of the form or the chosen amount if deferred. Amount is in cents.
@@ -47,7 +47,7 @@
 - `payment.card.last4` - last 4 digits of the card used
 - `payment.card.type` - the card type (Visa, MasterCard,etc.)
 - `payment.invoice` - the Stripe invoice ID
-- `payment.fields - an Array of custom field responses based on the form. See `Fields` section.
+- `payment.custom_fields - A Hash of custom field responses based on the form. See [Custom Fields](#custom-fields) section.
 
 ## Form
 - `form.id`
@@ -55,34 +55,80 @@
 - `form.title`
 - `form.description`
 
-## Fields
+## Custom Fields
 
 Fields contain the responses from the custom fields created on your
-forms. They are accessed through either payment.fields or plan.fields.
+forms. They are accessed through either `payment.custom_fields` or `plan.custom_fields`.
+
+The `custom_fields` variable is a Hash. [See how to loop over a Hash in Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#for-loops).
+
+The key will be the key you assign during the creation of your custom field in the payment form builder. The value contain the following fields:
+
+- `title` - the title of the field
+- `response` - the text response or the address on a single line
+- `address` - contains field with the address parts. If the field is not an address it will be empty (null).
+
+If address is not empty, it will contain:
+
+- `address.line1`
+- `address.line2`
+- `address.city`
+- `address.state`
+- `address.postal_code`
+- `address.county`
+
+Here is a sample of the structure of some custom field data:
+
+```
+  'shipping_address' => {
+    'title' => 'Shipping Address',
+    'address' => {
+      'line1' => '123 Sycamore St.',
+      'line2' => 'Suite 100',
+      'city' => 'Greenville',
+      'state' => 'SC',
+      'postal_code' => '29601',
+      'country' => 'United States'
+    },
+    'response' => '123 Sycamore St., Suite 100, Greenville, SC 29601, United States'
+  },
+  'tshirt_size' => {
+    'title' => 'T-shirt size',
+    'address' => nil,
+    'response' => 'X-Large'
+  }
+```
+
+### Looping over fields
 
 When looping through fields, the actual variable name will be determined
 by how you name the for loop in the template. In this example, the variable
-will be called
-`my_field`.
+will be called `field`.
 
-```
-{% for my_field in payment.fields %}
-  {{ my_field.title }}
+```Liquid
+{% for field in payment.custom_fields %}
+{{ field[1].title }}: {{ field[1].response }}
 {% endfor %}
 ```
 
-- `field.title` - the title of the field
-- `field.response` - the text response or the address on a single line
+Liquid uses the `[1]` to access the value of the field hash.
 
-If the custom field type is an address, we will add an additional liquid field
-called address with each of the parts of the address
 
-- `field.address.line1`
-- `field.address.line2`
-- `field.address.city`
-- `field.address.state`
-- `field.address.postal_code`
-- `field.address.county`
+### Accessing a specific field for display
+
+Another way to deal with custom field is to access a specific field. It is important to remember that the notification template is across all forms. If you write code to access a certain custom field you will want it to degrade nicely if the field doesn't exist.
+
+Let's say you have a `shipping_address` key on many of you forms and want to output it on the payment successful notification to the account holder.
+
+```Liquid
+{% if payment.custom_fields.shipping_address %}
+{% assign address = payment.custom_fields.shipping_address.address %}
+{{ address.line1 }}{% if address.line2 %}
+{{ address.line2 }}{% endif %}
+{{ address.city }}, {{ address.state }} {{ address.postal_code }}{% endif %}
+```
+
+
 
 # Liquid Filters
 
