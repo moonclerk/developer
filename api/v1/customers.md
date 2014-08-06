@@ -2,7 +2,7 @@
 
 The customer endpoint is used to obtain a list of customers ("Plans" in the MoonClerk web interface) and their subscription info.
 
-_There is a slight difference interminology between the MoonClerk web UI and the API. The web UI uses the term "Plan" to refer to the combination of a customer, subscription, and plan. The MoonClerk API is much more inline with the underlying Stripe contructs. In order to query the list of "plans" that one sees in the MoonClerk web UI, you would use the `/customers` endpoint._
+_There is a slight difference in terminology between the MoonClerk web UI and the API. The web UI uses the term "Plan" to refer to the combination of a customer, subscription, and plan. The MoonClerk API is much more in line with the underlying Stripe contructs. In order to query the list of "plans" that one sees in the MoonClerk web UI, you would use the `/customers` endpoint._
 
 ## The Customer Object
 
