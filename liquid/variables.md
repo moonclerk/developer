@@ -1,11 +1,13 @@
 # Liquid Variables & Filters for MoonClerk
 
-## Account
+## Liquid Variable Reference
+
+### Account
 - `account.name` -  Your MoonClerk account name
 - `account.email` - You MoonClerk account email (may be different from your sign in email)
 - `account.currency` - The currency your MoonClerk and Stripe account are using
 
-## Plan (Customer)
+### Plan (Customer)
 - `plan.id` - MoonClerk Plan ID
 - `plan.reference` - Stripe Customer ID for this plan
 - `plan.url` - a link to this plan on MoonClerk
@@ -33,7 +35,7 @@
 - `plan.checkout.upfront_amount` - The one-time upfront amount that is added to the first payment. (Fees are not applied to this amount.) Amount is in cents.
 - `plan.checkout.trial_period_days` - The number of trial period days for the checkout, if applicable.
 
-## Payment
+### Payment
 - `payment.id` - the MoonClerk internal payment ID
 - `payment.reference` - the Stripe charge ID
 - `payment.url` - a link to this plan on MoonClerk
@@ -49,11 +51,12 @@
 - `payment.invoice` - the Stripe invoice ID
 - `payment.custom_fields - A Hash of custom field responses based on the form. See [Custom Fields](#custom-fields) section.
 
-## Form
+### Form
 - `form.id`
 - `form.url`
 - `form.title`
 - `form.description`
+
 
 ## Custom Fields
 
@@ -104,6 +107,31 @@ Here is a sample of the structure of some custom field data:
 ### Deprecated field
 
 The `custom_fields` variable which is now a hash used to be called `fields` and exposed the fields as an array. We are maintaining this for backward compaitibility but all new development should use the newer `custom_fields` variable.
+
+
+## Variable Availability
+
+Which Liquid variables can I use in which email notifications?
+
+> Keep in mind that even though a variable may be send to your template,
+  it may be empty. Outputting an empty variable should not cause an error.
+
+### Payer Notifications
+
+* `Successful Payment` - payment, plan, account, form
+* `Recurring Plan Created` - plan, account, form
+* `Failed Payment on Recurring Plan` - invoice, plan, account, form
+* `Recurring Plan Ended` - plan, account, form
+* `Card Expiration Date Approaching` - plan, account, form
+* `Upcoming Payment` - plan, account, form
+
+### Account Notifications
+
+* `Successful Payment` - payment, plan, account, form
+* `Recurring Plan Created` - plan, account, form
+* `Failed Payment on Recurring Plan` - invoice, plan, account, form
+* `Recurring Plan Ended` - plan, account, form
+* `Card Expiration Date Approaching` - plan, account, form
 
 
 # Liquid Filters
