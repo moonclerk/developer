@@ -14,6 +14,10 @@ Welcome!
 * [Liquid Examples](https://github.com/moonclerk/developer/blob/master/liquid/examples.md)
 
 
+## Integrating with Your Site
+
+* [Integration Methods](https://github.com/moonclerk/developer/blob/master/integration.md)
+
 
 ## Help us make it better
 
