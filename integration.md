@@ -1,4 +1,4 @@
-# Integrating with Your Site
+# Integrating With Your Site
 
 If you'd like to be able to programmatically track a user through the checkout process, this page is for you.
 
@@ -43,18 +43,18 @@ Here you can see the entire embed snippet with the updated `opts` object:
 ```
 
 
-## Retriving the Custom ID and Checkout Info
+## Retrieving the Custom ID and Checkout Info
 
 ### Passing Parameters via the Redirect URL (Simpler)
 
-This is the simplest way to retrieve successful checkout information. When setting up your payment form, choose "Redirect to another web page" in the Confirmation section. Add your redirect URL. For this example we will use `http://example.com/success.html`.
+This is the simplest way to retrieve successful checkout information. When creating/editing your payment form in the MoonClerk dashboard, choose "Redirect to another web page" in the Confirmation section. Add your redirect URL. For this example we will use `http://example.com/success.html`.
 
 We allow for 3 populated parameters to be appended to your redirect URL:
 
 * `custom_id`
 * `payment_id` OR `customer_id`
 
-If a custom ID is passed into the checkout, it will be available for use in the redirect URL. Depending on the checkout type either the customer_id (for recurring) or the payment_id (for one time) will be available. Let's say you have a $10/mo recurring checkout and your are sending the `cid` into the checkout, you could create a redirect URL as follows:
+If a custom ID is passed into the checkout, it will be available for use in the redirect URL. Depending on the checkout type either the customer_id (for recurring) or the payment_id (for one time) will be available. Let's say you have a $10/month recurring checkout and you are sending the `cid` into the checkout, you could create a redirect URL as follows:
 
 ```
 http://example.com/success.html?custom_id={{custom_id}}&customer_id={{customer_id}}
@@ -66,7 +66,7 @@ After a successful checkout, those curly brackets will be replaced with the actu
 http://example.com/success.html?custom_id=123&customer_id=23452
 ```
 
-You can then use the [MoonClerk API](https://github.com/moonclerk/developer/blob/master/api/README.md) to lookup the customer (plan) using the `customer_id`. [See note on plan vs. customer nomenclature](https://github.com/moonclerk/developer/blob/master/api/v1/customers.md).
+You can then use the [MoonClerk API](https://github.com/moonclerk/developer/blob/master/api/README.md) to look up the customer (plan) using the `customer_id`. [See note on plan vs. customer nomenclature](https://github.com/moonclerk/developer/blob/master/api/v1/customers.md).
 
 
 ### Using Stripe Webhooks (More Complex)
@@ -79,5 +79,5 @@ Checkout Stripe's [webhook walkthrough](https://stripe.com/docs/webhooks) and th
 
 If you find that you need additional MoonClerk data that is not included in the Stripe payload, you can use the various IDs in metadata to access MoonClerk's API and retrieve any other data (such as custom information).
 
-Though this is a much more involved integration it gives you the ultimate flexibility as well.
+Though this is a much more involved integration, it gives you the ultimate flexibility as well.
 
