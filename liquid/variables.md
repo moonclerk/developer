@@ -113,7 +113,7 @@ The `custom_fields` variable which is now a hash used to be called `fields` and 
 
 Which Liquid variables can I use in which email notifications?
 
-> Keep in mind that even though a variable may be send to your template,
+> Keep in mind that even though a variable may be sent to your template,
   it may be empty. Outputting an empty variable should not cause an error.
 
 ### Payer Notifications
