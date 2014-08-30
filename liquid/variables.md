@@ -49,7 +49,7 @@
 - `payment.card.last4` - last 4 digits of the card used
 - `payment.card.type` - the card type (Visa, MasterCard,etc.)
 - `payment.invoice` - the Stripe invoice ID
-- `payment.custom_fields - A Hash of custom field responses based on the form. See [Custom Fields](#custom-fields) section.
+- `payment.custom_fields` - A Hash of custom field responses based on the form. See [Custom Fields](#custom-fields) section.
 
 ### Form
 - `form.id`
