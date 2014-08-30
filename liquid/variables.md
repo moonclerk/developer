@@ -116,22 +116,15 @@ Which Liquid variables can I use in which email notifications?
 > Keep in mind that even though a variable may be sent to your template,
   it may be empty. Outputting an empty variable should not cause an error.
 
-### Payer Notifications
 
-* `Successful Payment` - payment, plan, account, form
-* `Recurring Plan Created` - plan, account, form
-* `Failed Payment on Recurring Plan` - invoice, plan, account, form
-* `Recurring Plan Ended` - plan, account, form
-* `Card Expiration Date Approaching` - plan, account, form
-* `Upcoming Payment` - plan, account, form
-
-### Account Notifications
-
-* `Successful Payment` - payment, plan, account, form
-* `Recurring Plan Created` - plan, account, form
-* `Failed Payment on Recurring Plan` - invoice, plan, account, form
-* `Recurring Plan Ended` - plan, account, form
-* `Card Expiration Date Approaching` - plan, account, form
+Template                          | payment.*          | plan.*             | account.*         | form.*             | invoice.*
+--------------------------------- | :----------------: | :----------------: | :---------------: | :----------------: | :-------:
+Successful Payment                | :white_check_mark: | :white_check_mark: | :white_check_mark:| :white_check_mark: |
+Recurring Plan Created            |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |
+Failed Payment on Recurring Plan  |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: | :white_check_mark:
+Recurring Plan Ended              |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |
+Card Expiration Date Approaching  |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |
+Upcoming Payment                  |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |
 
 
 # Liquid Filters
