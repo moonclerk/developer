@@ -86,31 +86,32 @@ Notes:
 }
 ```
 
-## List Payments from a Specific Form
+### Filters
 
-* `GET /forms/:form_id/payments` will return all payments for the specified form.
+The following list filters are supported on payments.
 
-`https://api.moonclerk.com/forms/1234/payments`
+Parameter     | Description
+--------------|------------
+`form_id`     | the associated MoonClerk form ID (/forms/123)
+`customer_id` | the associated MoonClerk customer ID (/plans/123)
+`date_from`   | payments charged on or after this date
+`date_to`     | payments charged on or before this date
+`status`      | valid options are: successful, refunded, or failed
 
-```json
-{
-  "payments": [
-    {
-      "id": 1348445,
-      "date": "2014-04-08T18:58:35Z",
-      "status": "successful",
-      ...
-    },
-    {
-      "id": 1348394,
-      "date": "2014-04-08T18:57:26Z",
-      "status": "successful",
-      ...
-    },
-    ...
-  ]
-}
-```
+#### Notes
+
+* All date parameters should be in the form of "YYYY-MM-DD"
+* `date_from` parameter will start at the beginning of the day
+* `date_to` will go through the end of that day
+* All times are UTC based
+* You can combine any of the filter parameters
+
+#### Examples:
+
+* `GET /payments?form_id=5346`
+* `GET /payments?date_from=2014-10-01&date_to=2014-10-31`
+* `GET /payments?customer_id=12742&status=active`
+
 
 ## Get a Payment
 

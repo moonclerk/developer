@@ -120,31 +120,42 @@ Notes:
 }
 ```
 
-## List Customers from a Specific Form
+### Filters
 
-* `GET /forms/:form_id/customers` will return all customers for the specified form.
+The following list filters are supported on customers.
 
-`https://api.moonclerk.com/forms/1234/customers`
 
-```json
-{
-  "customers": [
-    {
-      "id": 523425,
-      "name": "Ryan Wood",
-      "email": "ryan@moonclerk.com",
-      ...
-    },
-    {
-      "id": 523458,
-      "name": "Dodd Caldwell",
-      "email": "dodd@moonclerk.com",
-      ...
-    },
-    ...
-  ]
-}
-```
+* `form_id`
+* `checkout_from`
+* `checkout_to`
+* `next_payment_from`
+* `next_payment_to`
+* `status`
+
+Parameter             | Description
+-------------------   |------------
+`form_id`             | the associated MoonClerk form ID (/forms/123)
+`customer_id`         | the associated MoonClerk customer ID (/plans/123)
+`checkout_from`       | customers created on or after this date
+`checkout_to`         | customers created on or before this date
+`next_payment_from`   | subscription due to bill on or after this date
+`next_payment_to`     | subscription due to bill on or before this date
+`status`              | valid options are: active, trialing, not_started, past_due, canceled, or unpaid
+
+#### Notes
+
+* The date parameters should be in the form of "YYYY-MM-DD"
+* `*_from` parameter will start at the beginning of the day
+* `*_to` will go through the end of that day
+* All times are UTC based
+* You can combine any of the filter parameters
+
+#### Examples:
+
+* `GET /customers?form_id=5346`
+* `GET /customers?checkout_from=2014-10-01`
+* `GET /customers?next_payment_from=2014-10-01&next_payment_to=2014-10-31`
+* `GET /customers?customer_id=12742&status=active`
 
 
 ## Get a Customer
