@@ -32,6 +32,7 @@ _There is a slight difference in terminology between the MoonClerk web UI and th
     "ends_at": "2013-05-12T20:05:37Z"
   },
   "delinquent": false,
+  "management_url": "https://app.moonclerk.com/manage/xyz1234567",
   "custom_fields": {
     "shirt_size": {
       "type": "string",
