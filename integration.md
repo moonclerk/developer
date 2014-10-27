@@ -10,16 +10,16 @@ If you'd like to be able to programmatically track a user through the checkout p
 In order to track a known user from your site through a MoonClerk checkout you can pass a `cid` parameter (short for custom_id) into the checkout. If you are linking to your checkout you can simply tack it onto the URL. If your user ID is 234, you can add the following parameter to your checkout URL:
 
 ```
-http://moonclerk.dev/pay/8h7frjfytj
+https://app.moonclerk.com/pay/8h7frjfytj
 ```
 
 becomes
 
 ```
-http://moonclerk.dev/pay/8h7frjfytj?cid=234
+https://app.moonclerk.com/pay/8h7frjfytj?cid=234
 ```
 
-**A note about security. We highly discourage passing real IDs over the URL. We recommend creating a MD5 or SHA hash based on the id and timestamp and storing with the user in your database and passing that parameter.**
+**A note about security. All traffic to and from MoonClerk is encrypted with SSL which includes the URL. If you are concerned about sending real IDs over the URL you can create a MD5 or SHA hash based on the id and timestamp, store it with the user in your database, and pass that parameter instead of the acutal ID.**
 
 
 ### Embedded Checkout
