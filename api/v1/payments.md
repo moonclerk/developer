@@ -18,6 +18,7 @@
   "card_exp_month": 12,
   "card_exp_year": 2018,
   "charge_reference": "ch_3ohpsF8ra5rqjj",
+  "customer_id": 53453,
   "customer_reference": "cus_4SOZuEc4cxP5L7",
   "invoice_reference": "in_1La8pLqS2UnhPZ",
   "custom_fields": {
