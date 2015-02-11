@@ -176,3 +176,55 @@ Parameter             | Description
   }
 }
 ```
+
+## Update a Customer
+
+* `PATCH /customers/:id` will update the specified customer.
+
+You can update the name and/or email for a customer. For example, to update
+this customer's name and email:
+
+```shell
+$ curl -H "Authorization: Token token=[API Key]" \
+    -H "Accept: application/vnd.moonclerk+json;version=1" \
+    https://api.moonclerk.com/customers/523425 \
+    -d name="Bob Smith" \
+    -d email="bob@smith.com" \
+    -X PATCH
+```
+
+
+## Update a Custom Field on a Customer
+
+* `PATCH /customers/:customer_id/custom_fields/:id` will update the specified customer.
+
+You can only update custom fields that exist (were completed at checkout) and have not been deleted from the payment form. You can get the `id` of the custom field response from the customer object. It is found within each custom field object.
+
+If the response type is a string you will pass a `response` parameter. If the field type is an address, you will pass any or all of the address parameters to update them.
+
+The call will return an updated custom field response object.
+
+### Updating a Text Response
+
+```shell
+$ curl -H "Authorization: Token token=[API Key]" \
+    -H "Accept: application/vnd.moonclerk+json;version=1" \
+    https://api.moonclerk.com/customers/523425/custom_fields/6434324 \
+    -d response="Yes" \
+    -X PATCH
+```
+
+### Updating an Address Response
+
+```shell
+$ curl -H "Authorization: Token token=[API Key]" \
+    -H "Accept: application/vnd.moonclerk+json;version=1" \
+    https://api.moonclerk.com/customers/523425/custom_fields/6434326 \
+    -d line1="1040 West Washington St." \
+    -d line2="Ste 100" \
+    -d city="Greenville" \
+    -d state="SC" \
+    -d postal_code="29601" \
+    -d country="United States" \
+    -X PATCH
+```
