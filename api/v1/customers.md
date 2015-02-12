@@ -92,8 +92,8 @@ _There is a slight difference in terminology between the MoonClerk web UI and th
 Notes:
 
 * `discount` may be null if there is no current discount
-* Custom field keys are set in the *Additional Information* section of the payment form builder. You can change them
-* An key ending in `_reference` corresponds to a related Stripe ID
+* Custom field keys are configured in the *Additional Information* section of the payment form builder
+* Any JSON key in the customer object ending in `_reference` corresponds to a related Stripe ID
 
 ## List Customers
 
