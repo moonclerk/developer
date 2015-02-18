@@ -35,13 +35,14 @@ _There is a slight difference in terminology between the MoonClerk web UI and th
   "management_url": "https://app.moonclerk.com/manage/xyz1234567",
   "custom_fields": {
     "shirt_size": {
+      "id": 23452,
       "type": "string",
       "response": "XL"
     },
     "shipping_address": {
+      "id": 23453,
       "type": "address",
       "response": {
-        "id": 32,
         "line1": "123 Main St.",
         "line2": "Ste. 153",
         "city": "Greenville",

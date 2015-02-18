@@ -23,13 +23,14 @@
   "invoice_reference": "in_1La8pLqS2UnhPZ",
   "custom_fields": {
     "shirt_size": {
+      "id": 23452,
       "type": "string",
       "response": "XL"
     },
     "shipping_address": {
+      "id": 23453,
       "type": "address",
       "response": {
-        "id": 32,
         "line1": "123 Main St.",
         "line2": "Ste. 153",
         "city": "Greenville",
