@@ -58,7 +58,7 @@ Then to get the next page of 20:
 
 ## API libraries
 
-None at this point. Feel free to write one and add it here.
+- [Unofficial PHP Library](https://github.com/JobBrander/moonclerk-php)
 
 
 ## Help us make it better
