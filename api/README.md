@@ -59,6 +59,7 @@ Then to get the next page of 20:
 ## API libraries
 
 - [Unofficial PHP Library](https://github.com/JobBrander/moonclerk-php)
+- [Unofficial Ruby Gem](https://github.com/TrevorHinesley/moonclerk)
 
 
 ## Help us make it better
