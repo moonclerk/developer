@@ -17,6 +17,7 @@
   "card_type": "Visa",
   "card_exp_month": 12,
   "card_exp_year": 2018,
+  "custom_id": "GHS430",
   "charge_reference": "ch_3ohpsF8ra5rqjj",
   "customer_id": 53453,
   "customer_reference": "cus_4SOZuEc4cxP5L7",
@@ -60,6 +61,7 @@ Notes:
 * `fee` is the Stripe Fee
 * `customer_reference` will be present if the payment was attached to a Stripe customer (vs. a one time payment). Otherwise, it will be null.
 * `invoice_reference` will be present if the payment was generated from a Stripe invoice (vs. a one off payment). Otherwise, it will be null.
+* The `custom_id` field is populated if you use one of our [integration methods](https://github.com/moonclerk/developer/blob/master/integration.md).
 
 
 ## List Payments

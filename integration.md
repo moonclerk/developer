@@ -66,7 +66,7 @@ After a successful checkout, those curly brackets will be replaced with the actu
 http://example.com/success.html?custom_id=123&customer_id=23452
 ```
 
-You can then use the [MoonClerk API](https://github.com/moonclerk/developer/blob/master/api/README.md) to look up the customer (plan) using the `customer_id`. [See note on plan vs. customer nomenclature](https://github.com/moonclerk/developer/blob/master/api/v1/customers.md).
+You can then use the [MoonClerk API](https://github.com/moonclerk/developer/blob/master/api/README.md) to look up the customer (plan) using the `customer_id`. [See note on plan vs. customer nomenclature](https://github.com/moonclerk/developer/blob/master/api/v1/customers.md). The payload for both customers and payments contain a `custom_id` field which should match the `cid` you provided. You can use that as a double check that the custom ID is correct.
 
 
 ### Using Stripe Webhooks (More Complex)

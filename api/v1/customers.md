@@ -16,6 +16,7 @@ _There is a slight difference in terminology between the MoonClerk web UI and th
   "card_type": "Visa",
   "card_exp_month": 12,
   "card_exp_year": 2018,
+  "custom_id": "GHS430",
   "customer_reference": "cus_4SOZuEc4cxP5L7",
   "discount": {
     "coupon": {
@@ -95,6 +96,7 @@ Notes:
 * `discount` may be null if there is no current discount
 * Custom field keys are configured in the *Additional Information* section of the payment form builder
 * Any JSON key in the customer object ending in `_reference` corresponds to a related Stripe ID
+* The `custom_id` field is populated if you use one of our [integration methods](https://github.com/moonclerk/developer/blob/master/integration.md).
 
 ## List Customers
 
