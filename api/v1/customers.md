@@ -139,7 +139,6 @@ The following list filters are supported on customers.
 Parameter             | Description
 -------------------   |------------
 `form_id`             | the associated MoonClerk form ID (/forms/123)
-`customer_id`         | the associated MoonClerk customer ID (/plans/123)
 `checkout_from`       | customers created on or after this date
 `checkout_to`         | customers created on or before this date
 `next_payment_from`   | subscription due to bill on or after this date
@@ -159,7 +158,6 @@ Parameter             | Description
 * `GET /customers?form_id=5346`
 * `GET /customers?checkout_from=2014-10-01`
 * `GET /customers?next_payment_from=2014-10-01&next_payment_to=2014-10-31`
-* `GET /customers?customer_id=12742&status=active`
 
 
 ## Get a Customer
