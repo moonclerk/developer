@@ -4,7 +4,7 @@
 
 ### Account
 - `account.name` -  Your MoonClerk account name
-- `account.email` - You MoonClerk account email (may be different from your sign in email)
+- `account.email` - Your MoonClerk account email (may be different from your sign in email)
 - `account.currency` - The currency your MoonClerk and Stripe account are using
 
 ### Plan (Customer)
