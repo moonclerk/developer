@@ -61,6 +61,9 @@ Then to get the next page of 20:
 - [Unofficial PHP Library](https://github.com/JobBrander/moonclerk-php)
 - [Unofficial Ruby Gem](https://github.com/TrevorHinesley/moonclerk)
 
+## Throttling
+
+We expect that everyone using our API will be a good internet citizen and not be abusive to our servers. In an effort to avoid server issues we have throttling controls in place. If you hit a throttling limit you will receive a `429 - Too Many Requests` error. If you get this error, please reduce the number and/frequency of calls. 
 
 ## Help us make it better
 
