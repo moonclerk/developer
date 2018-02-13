@@ -17,6 +17,7 @@ Welcome!
 ## Integrating with Your Site
 
 * [Integration Methods](https://github.com/moonclerk/developer/blob/master/integration.md)
+* [Styling the "Card Details" field on your payment form](/customize-card-details-field.md)
 
 
 ## Help us make it better
