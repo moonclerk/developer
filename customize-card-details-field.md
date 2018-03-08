@@ -2,7 +2,7 @@
 
 ## What has changed?
 
-MoonClerk has always supported applying custom CSS (Cascading Style Sheets) to your payment forms to create a pleasing and brand-matched experience for your payers. Due to changes in PCI Security Standards, Stripe introduced Stripe Elements to comply with these changes. Effectively, it moves the credit card input fields from MoonClerk's server to Stripe's servers. The net effect is that as of ?????DATE?????, styling of the new Stripe Elements card field cannot be accomplished using CSS alone. If you need to provide additional styling to your payment form's card details field, you'll need to use a combination of CSS and custom JSON styling.
+MoonClerk has always supported applying custom CSS (Cascading Style Sheets) to your payment forms to create a pleasing and brand-matched experience for your payers. Due to changes in PCI Security Standards, Stripe introduced Stripe Elements to comply with these changes. Effectively, it moves the credit card input fields from MoonClerk's server to Stripe's servers. The net effect is that as of March 8, 2018, styling of the new Stripe Elements card field cannot be accomplished using CSS alone. If you need to provide additional styling to your payment form's card details field, you'll need to use a combination of CSS and custom JSON styling.
 
 This is an advanced feature and there is a possibility that implementing it incorrectly could cause issues with your checkout. We suggest reading over the documentation carefully and reviewing the entire checkout process after you have customized the form to ensure it functions properly.
 
