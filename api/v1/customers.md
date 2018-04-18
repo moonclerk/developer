@@ -60,7 +60,8 @@ _There is a slight difference in terminology between the MoonClerk web UI and th
     "fee": 200,
     "upfront_amount": 500,
     "total": 1700,
-    "coupon_amount": 0,
+    "coupon_code": "10off",
+    "coupon_amount": 1000,
     "amount_due": 1700,
     "trial_period_days": null
   },
