@@ -60,7 +60,7 @@ Payment Details:
 Charge Date: {{ payment.date | date: '%b %d, %Y' }}
 Bill To: {{ payment.name }}
 Amount: {{ payment.amount | money_with_currency }}
-Last 4 Card Digits: {{ payment.card.last4 }}{% if plan %}
+Payment Method Last 4: {{ payment.payment_source.last4 }}{% if plan %}
 
 Recurring Plan Details:
 
@@ -71,5 +71,5 @@ Expiration: {{ plan.expires | date: '%b %d, %Y' }}{% endif %}{% if plan.next_pay
 Next Payment Attempt: {{ plan.next_payment_attempt | date: '%b %d, %Y'  }}{% endif %}
 
 To update your card on file, please visit:
-{{ plan.card.update_url }}{% endif %}
+{{ plan.payer_manage_url }}{% endif %}
 ```
