@@ -12,10 +12,14 @@ _There is a slight difference in terminology between the MoonClerk web UI and th
   "account_balance": 0,
   "name": "Ryan Wood",
   "email": "ryan@moonclerk.com",
-  "card_last4": "4242",
-  "card_type": "Visa",
-  "card_exp_month": 12,
-  "card_exp_year": 2018,
+  "payment_source": {    
+    "type": "card",
+    "last4": "4242",
+    "exp_month": 12,
+    "exp_year": 2018,
+    "brand": "Visa",
+    "bank_name": "Chase",
+  },
   "custom_id": "GHS430",
   "customer_reference": "cus_4SOZuEc4cxP5L7",
   "discount": {
@@ -98,6 +102,8 @@ Notes:
 * Custom field keys are configured in the *Additional Information* section of the payment form builder
 * Any JSON key in the customer object ending in `_reference` corresponds to a related Stripe ID
 * The `custom_id` field is populated if you use one of our [integration methods](https://github.com/moonclerk/developer/blob/master/integration.md).
+* `brand`, `exp_month` and `exp_year` are only present when the payment method used is card
+* `bank_name`is only present when the payment method used is ach
 
 ## List Customers
 
