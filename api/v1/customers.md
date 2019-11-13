@@ -150,7 +150,7 @@ Parameter             | Description
 `checkout_to`         | customers created on or before this date
 `next_payment_from`   | subscription due to bill on or after this date
 `next_payment_to`     | subscription due to bill on or before this date
-`status`              | valid options are: active, trialing, pending, past_due, canceled, or unpaid
+`status`              | valid options are: active, canceled, expired, past_due, pending, or unpaid
 
 #### Notes
 
