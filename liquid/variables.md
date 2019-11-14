@@ -26,6 +26,7 @@
 - `plan.start` - The first scheduled payment attempt
 - `plan.expires` - The expiration date of the plan, if applicable
 - `plan.amount` - The recurring amount in cents
+- `plan.amount_description` - The description of the matching form amount option, if applicable
 - `plan.interval` - week, month or year
 - `plan.interval_count` - 1 or more
 - `plan.frequency` - interval phrase, i.e. "every 3 months”
@@ -45,6 +46,7 @@
 - `payment.name` - Payer's name
 - `payment.email` - Payer's email
 - `payment.amount` - the payment amount in cents
+- `payment.amount_description` - The description of the matching form amount option, if applicable
 - `payment.fee` - the fee in cents
 - `payment.amount_refunded` - the amount refunded in cents
 - `payment.status` - payment status in the dashboard

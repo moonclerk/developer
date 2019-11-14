@@ -12,7 +12,7 @@ _There is a slight difference in terminology between the MoonClerk web UI and th
   "account_balance": 0,
   "name": "Ryan Wood",
   "email": "ryan@moonclerk.com",
-  "payment_source": {    
+  "payment_source": {
     "type": "card",
     "last4": "4242",
     "exp_month": 12,
@@ -24,14 +24,14 @@ _There is a slight difference in terminology between the MoonClerk web UI and th
   "customer_reference": "cus_4SOZuEc4cxP5L7",
   "discount": {
     "coupon": {
-        "code": "10off",
-        "duration": "once",
-        "amount_off": 1000,
-        "currency": "USD",
-        "percent_off": null,
-        "duration_in_months": null,
-        "max_redemptions": null,
-        "redeem_by": null
+      "code": "10off",
+      "duration": "once",
+      "amount_off": 1000,
+      "currency": "USD",
+      "percent_off": null,
+      "duration_in_months": null,
+      "max_redemptions": null,
+      "redeem_by": null
     },
     "starts_at": "2013-04-12T20:05:37Z",
     "ends_at": "2013-05-12T20:05:37Z"
@@ -88,6 +88,7 @@ _There is a slight difference in terminology between the MoonClerk web UI and th
       "id": 131,
       "plan_reference": "131",
       "amount": 1200,
+      "amount_description": "Option A",
       "currency": "USD",
       "interval": "month",
       "interval_count": 1
