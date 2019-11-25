@@ -11,16 +11,17 @@
   "amount": 1000,
   "fee": 59,
   "amount_refunded": 0,
+  "amount_description": "Option A",
   "name": "Jim Customer",
   "email": "customer@example.com",
-  "payment_source": {    
+  "payment_source": {
     "type": "card",
     "last4": "4242",
     "exp_month": 12,
     "exp_year": 2018,
     "brand": "Visa",
     "bank_name": "Chase",
-  }, 
+  },
   "custom_id": "GHS430",
   "charge_reference": "ch_3ohpsF8ra5rqjj",
   "customer_id": 53453,
@@ -67,7 +68,7 @@ Notes:
 * `invoice_reference` will be present if the payment was generated from a Stripe invoice (vs. a one off payment). Otherwise, it will be null.
 * The `custom_id` field is populated if you use one of our [integration methods](https://github.com/moonclerk/developer/blob/master/integration.md).
 * `brand`, `exp_month` and `exp_year` are only present when the payment method used is card
-* `bank_name`is only present when the payment method used is ach
+* `bank_name` is only present when the payment method used is ach
 
 
 ## List Payments
