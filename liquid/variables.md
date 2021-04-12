@@ -110,6 +110,15 @@ Here is a sample of the structure of some custom field data:
 
 [Browse examples of how to use custom fields within a template](https://github.com/moonclerk/developer/blob/master/liquid/examples.md#using-custom-fields).
 
+### Digital Delivery Order
+- `order.name`
+- `order.email`
+- `order.access_link`
+
+### Digital Delivery Package
+- `package.name`
+- `package.description`
+
 ### Deprecated fields
 We are maintaining deprecated fields for backward compatibility but all new development should use the newer variables described below.
 
@@ -129,14 +138,15 @@ Which Liquid variables can I use in which email notifications?
   it may be empty. Outputting an empty variable should not cause an error.
 
 
-Template                          | payment.*          | plan.*             | account.*         | form.*             | invoice.*
---------------------------------- | :----------------: | :----------------: | :---------------: | :----------------: | :-------:
-Successful Payment                | :white_check_mark: | :white_check_mark: | :white_check_mark:| :white_check_mark: |
-Recurring Plan Created            |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |
-Failed Payment on Recurring Plan  |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: | :white_check_mark:
-Recurring Plan Ended              |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |
-Card Expiration Date Approaching  |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |
-Upcoming Payment                  |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |
+Template                           | payment.*          | plan.*             | account.*         | form.*             | invoice.*           | order.*            | package.*          |
+---------------------------------  | :----------------: | :----------------: | :---------------: | :----------------: | :-------:           | :-------:          | :-------:          |
+Successful Payment                 | :white_check_mark: | :white_check_mark: | :white_check_mark:| :white_check_mark: |                     |                    |                    |
+Recurring Plan Created             |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |                     |                    |                    |
+Failed Payment on Recurring Plan   |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: | :white_check_mark:  |                    |                    |
+Recurring Plan Ended               |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |                     |                    |                    |
+Card Expiration Date Approaching   |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |                     |                    |                    |
+Upcoming Payment                   |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |                     |                    |                    |
+Successful Digital Delivery Order  | :white_check_mark: | :white_check_mark: |                   | :white_check_mark: |                     | :white_check_mark: | :white_check_mark: |
 
 
 # Liquid Filters
