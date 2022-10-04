@@ -134,6 +134,25 @@ MoonClerk expects to receive a **200-204 HTTP** response code from the endpoint.
       }
     },
     "form_id": 101,
+    "custom_fields": {
+      "shirt_size": {
+        "id": 23452,
+        "type": "string",
+        "response": "XL"
+      },
+      "shipping_address": {
+        "id": 23453,
+        "type": "address",
+        "response": {
+          "line1": "123 Main St.",
+          "line2": "Ste. 153",
+          "city": "Greenville",
+          "state": "SC",
+          "postal_code": "29651",
+          "country": "United States"
+        }
+      }
+    },
     "checkout": {
       "date": "2022-07-23T13:44:12Z",
       "subtotal": 1000,
