@@ -2,7 +2,6 @@
 
 If you'd like to be able to programmatically track a user through the checkout process, this page is for you.
 
-
 ## Passing a Custom ID
 
 ### Linked Checkout
@@ -20,7 +19,6 @@ https://app.moonclerk.com/pay/8h7frjfytj?cid=234
 ```
 
 **A note about security. All traffic to and from MoonClerk is encrypted with SSL which includes the URL. If you are concerned about sending real IDs over the URL you can create a MD5 or SHA hash based on the id and timestamp, store it with the user in your database, and pass that parameter instead of the actual ID.**
-
 
 ### Embedded Checkout
 
@@ -42,32 +40,31 @@ Here you can see the entire embed snippet with the updated `opts` object:
 <div id="mc8h7frjfytj"><a href="http://moonclerk.dev/pay/8h7frjfytj">Easy Time</a></div><script type="text/javascript">var mc8h7frjfytj;(function(d,t) {var s=d.createElement(t),opts={"checkoutToken":"8h7frjfytj","width":"100%","cid":"234"};s.src='http://moonclerk.dev/assets/embed.js';s.onload=s.onreadystatechange = function() {var rs=this.readyState;if(rs) if(rs!='complete') if(rs!='loaded') return;try {mc8h7frjfytj=new MoonclerkEmbed(opts);mc8h7frjfytj.display();} catch(e){}};var scr=d.getElementsByTagName(t)[0];scr.parentNode.insertBefore(s,scr);})(document,'script');</script>
 ```
 
+## Retrieving the Custom ID
 
-## Retrieving the Custom ID and Checkout Info
+### Passing `custom_id` Parameter via the Redirect URL (Simpler)
 
-### Passing Parameters via the Redirect URL (Simpler)
+⚠️ Important! [Previous versions](https://github.com/moonclerk/developer/blob/9d5c102f84025ece05dd94a941ac98ded1ced809/integration.md#passing-parameters-via-the-redirect-url-simpler) of this document referenced `payment_id` and `customer_id` parameters. These parameters are deprecated and will not be available in the near future.
 
 This is the simplest way to retrieve successful checkout information. When creating/editing your payment form in the MoonClerk dashboard, choose "Redirect to another web page" in the Confirmation section. Add your redirect URL. For this example we will use `http://example.com/success.html`.
 
-We allow for 3 populated parameters to be appended to your redirect URL:
-
-* `custom_id`
-* `payment_id` OR `customer_id`
-
-If a custom ID is passed into the checkout, it will be available for use in the redirect URL. Depending on the checkout type either the customer_id (for recurring) or the payment_id (for one time) will be available. Let's say you have a $10/month recurring checkout and you are sending the `cid` into the checkout, you could create a redirect URL as follows:
+We allow for a `custom_id` parameter to be appended to your redirect URL. If a custom ID is passed into the checkout, it will be available for use in the redirect URL. Let's say you have a $10/month recurring checkout and you are sending the `cid` into the checkout, you could create a redirect URL as follows:
 
 ```
-http://example.com/success.html?custom_id={{custom_id}}&customer_id={{customer_id}}
+http://example.com/success.html?custom_id={{custom_id}}
 ```
 
-After a successful checkout, those curly brackets will be replaced with the actual values. You can set the parameter names to whatever you like. With a cid of 123, it my look like:
+After a successful checkout, those curly brackets will be replaced with the actual value. You can set the parameter names to whatever you like. With a cid of 123, it my look like:
 
 ```
-http://example.com/success.html?custom_id=123&customer_id=23452
+http://example.com/success.html?custom_id=123
 ```
 
 You can then use the [MoonClerk API](https://github.com/moonclerk/developer/blob/master/api/README.md) to look up the customer (plan) using the `customer_id`. [See note on plan vs. customer nomenclature](https://github.com/moonclerk/developer/blob/master/api/v1/customers.md). The payload for both customers and payments contain a `custom_id` field which should match the `cid` you provided. You can use that as a double check that the custom ID is correct.
 
+### Using MoonClerk Webhooks (More Complex)
+
+[See our webhook documentation page.](https://github.com/moonclerk/developer/blob/master/webhooks.md)
 
 ### Using Stripe Webhooks (More Complex)
 
@@ -80,4 +77,3 @@ Checkout Stripe's [webhook walkthrough](https://stripe.com/docs/webhooks) and th
 If you find that you need additional MoonClerk data that is not included in the Stripe payload, you can use the various IDs in metadata to access MoonClerk's API and retrieve any other data (such as custom information).
 
 Though this is a much more involved integration, it gives you the ultimate flexibility as well.
-
