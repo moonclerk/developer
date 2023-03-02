@@ -3,11 +3,13 @@
 ## Liquid Variable Reference
 
 ### Account
-- `account.name` -  Your MoonClerk account name
+
+- `account.name` - Your MoonClerk account name
 - `account.email` - You MoonClerk account email (may be different from your sign in email)
 - `account.currency` - The currency your MoonClerk and Stripe account are using
 
 ### Plan (Customer)
+
 - `plan.id` - MoonClerk Plan ID
 - `plan.reference` - Stripe Customer ID for this plan
 - `plan.url` - a link to this plan on MoonClerk
@@ -22,7 +24,7 @@
 - `plan.discount.coupon` - A description of the currently applied coupon, i.e. "10off ($10.00 off once)". This will only exist if there is an active discount. Otherwise it will be empty.
 - `plan.discount.expiration` - The date the active discount expires for this plan. This will only exist if there is an active discount. Otherwise it will be empty.
 - `plan.status` - The status of the plan (Active, Not Started, Canceled, etc.)
-- `plan.next_payment_attempt` -  The next scheduled payment attempt on this plan
+- `plan.next_payment_attempt` - The next scheduled payment attempt on this plan
 - `plan.start` - The first scheduled payment attempt
 - `plan.expires` - The expiration date of the plan, if applicable
 - `plan.amount` - The recurring amount in cents
@@ -39,6 +41,7 @@
 - `plan.checkout.trial_period_days` - The number of trial period days for the checkout, if applicable.
 
 ### Payment
+
 - `payment.id` - the MoonClerk internal payment ID
 - `payment.reference` - the Stripe charge ID
 - `payment.url` - a link to this plan on MoonClerk
@@ -58,11 +61,11 @@
 - `payment.custom_fields` - A Hash of custom field responses based on the form. See [Custom Fields](#custom-fields) section.
 
 ### Form
+
 - `form.id`
 - `form.url`
 - `form.title`
 - `form.description`
-
 
 ## Custom Fields
 
@@ -111,47 +114,48 @@ Here is a sample of the structure of some custom field data:
 [Browse examples of how to use custom fields within a template](https://github.com/moonclerk/developer/blob/master/liquid/examples.md#using-custom-fields).
 
 ### Digital Delivery Order
+
 - `order.name`
 - `order.email`
 - `order.access_link`
 
 ### Digital Delivery Package
+
 - `package.name`
 - `package.description`
 
 ### Deprecated fields
+
 We are maintaining deprecated fields for backward compatibility but all new development should use the newer variables described below.
 
-- `fields` is now a hash called `custom_fields` 
+- `fields` is now a hash called `custom_fields`
 - `plan.card.last4` is now `plan.payment_source.last4`
 - `plan.card.type` is now `plan.payment_source.brand`
 - `plan.card.expiration` is now `plan.payment_source.expiration`
 - `payment.card.last4` is now `payment.payment_source.last4`
 - `payment.card.type` is now `payment.payment_source.brand`
 
-
 ## Variable Availability
 
 Which Liquid variables can I use in which email notifications?
 
 > Keep in mind that even though a variable may be sent to your template,
-  it may be empty. Outputting an empty variable should not cause an error.
+> it may be empty. Outputting an empty variable should not cause an error.
 
-
-Template                           | payment.*          | plan.*             | account.*         | form.*             | invoice.*           | order.*            | package.*          |
----------------------------------  | :----------------: | :----------------: | :---------------: | :----------------: | :-------:           | :-------:          | :-------:          |
-Successful Payment                 | :white_check_mark: | :white_check_mark: | :white_check_mark:| :white_check_mark: |                     |                    |                    |
-Recurring Plan Created             |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |                     |                    |                    |
-Failed Payment on Recurring Plan   |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: | :white_check_mark:  |                    |                    |
-Recurring Plan Ended               |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |                     |                    |                    |
-Card Expiration Date Approaching   |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |                     |                    |                    |
-Upcoming Payment                   |                    | :white_check_mark: | :white_check_mark:| :white_check_mark: |                     |                    |                    |
-Successful Digital Delivery Order  | :white_check_mark: | :white_check_mark: |                   | :white_check_mark: |                     | :white_check_mark: | :white_check_mark: |
-
+| Template                          |     payment.\*     |      plan.\*       |     account.\*     |      form.\*       |     invoice.\*     |      order.\*      |     package.\*     |
+| --------------------------------- | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: |
+| Successful Payment                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |                    |                    |                    |
+| Recurring Plan Created            |                    | :white_check_mark: | :white_check_mark: | :white_check_mark: |                    |                    |                    |
+| Failed Payment on Recurring Plan  |                    | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |                    |                    |
+| Recurring Plan Ended              |                    | :white_check_mark: | :white_check_mark: | :white_check_mark: |                    |                    |                    |
+| Card Expiration Date Approaching  |                    | :white_check_mark: | :white_check_mark: | :white_check_mark: |                    |                    |                    |
+| Upcoming Payment                  |                    | :white_check_mark: | :white_check_mark: | :white_check_mark: |                    |                    |                    |
+| Successful Digital Delivery Order | :white_check_mark: | :white_check_mark: |                    | :white_check_mark: |                    | :white_check_mark: | :white_check_mark: |
 
 # Liquid Filters
 
 ## MoonClerk Filters
+
 - `money` - formats money with a symbol
 - `money_with_currency` - formats money with a symbol and currency
 - `money_without_currency` - formats money as a decimal

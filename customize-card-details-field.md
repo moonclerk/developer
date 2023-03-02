@@ -12,7 +12,7 @@ There are a few things you need to know.
 
 ### Styling around the card input
 
-If you want to style *around* the input field, you'll still want to use custom CSS. The Card Element is contained in the `.StripeElement` class. Applying styles to it will effect the border, padding, margin, etc. **Do not attempt to style anything with CSS inside of the `.StripeElement` class. It will fail and could break your checkout.** Here is an example of applying custom CSS to the `.StripeElement` class:
+If you want to style _around_ the input field, you'll still want to use custom CSS. The Card Element is contained in the `.StripeElement` class. Applying styles to it will effect the border, padding, margin, etc. **Do not attempt to style anything with CSS inside of the `.StripeElement` class. It will fail and could break your checkout.** Here is an example of applying custom CSS to the `.StripeElement` class:
 
 ```css
 .StripeElement {
@@ -96,9 +96,9 @@ There are four variants for your Card Details form field. Each variant should be
 `empty` - applied when there is no customer input
 `invalid` - applied only for invalid input
 
-
 For each of the variants above, the properties below can be customized with CSS properties:
-````
+
+```
 color
 fontFamily
 fontSize
@@ -112,16 +112,17 @@ textAlign
 textDecoration
 textShadow
 textTransform
-````
+```
 
 Further, the following pseudo-classes can be styled with the above properties, as a nested object inside each variants:
-````
+
+```
 :hover
 :focus
 ::placeholder
 ::selection
 :-webkit-autofill
 ::-ms-clear
-````
+```
 
 All Card Details form field styling should exist (as valid JSON) within a single object, with all keys and values being wrapped in double quotes. We recommend composing your valid JSON in an external text editor or using a linter to assure you are providing valid JSON.

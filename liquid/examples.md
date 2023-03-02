@@ -18,7 +18,6 @@ will be called `field`.
 
 **Liquid uses the `[1]` to access the value of the field hash.**
 
-
 ### Accessing a specific field for display
 
 Another way to deal with custom field is to access a specific field. It is important to remember that the notification template is across all forms. If you write code to accesses a certain custom field you will want it to degrade nicely if the field doesn't exist on the current payment or plan.
@@ -32,7 +31,6 @@ Let's say you have a `shipping_address` key on many of you forms and want to out
 {{ address.line2 }}{% endif %}
 {{ address.city }}, {{ address.state }} {{ address.postal_code }}{% endif %}
 ```
-
 
 ## Setting a different message for each form
 
