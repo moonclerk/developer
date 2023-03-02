@@ -58,8 +58,10 @@ After a successful checkout, those curly brackets will be replaced with the actu
 http://example.com/success.html?custom_id=123
 ```
 
-You can then use the [MoonClerk API](https://github.com/moonclerk/developer/blob/master/api/README.md) to look up the customer (plan) using the `customer_id`. [See note on plan vs. customer nomenclature](https://github.com/moonclerk/developer/blob/master/api/v1/customers.md). The payload for both customers and payments contain a `custom_id` field which should match the `cid` you provided. You can use that as a double check that the custom ID is correct.
+You can then use the [MoonClerk API](https://github.com/moonclerk/developer/blob/master/api/README.md) retrieve MoonClerk customer or payment data and correlate the custom_id. The payload for both customers and payments contain a `custom_id` field which should match the `cid` you provided.
 
 ### Using MoonClerk Webhooks (More Complex)
+
+The [Customer](https://github.com/moonclerk/developer/blob/main/webhooks.md#example-customer-payload) and [Payment](https://github.com/moonclerk/developer/blob/main/webhooks.md#example-payment-payload) webhook payloads should contain a `custom_id` field which should match the `cid` you provided.
 
 [See our webhook documentation page.](https://github.com/moonclerk/developer/blob/master/webhooks.md)
