@@ -44,8 +44,6 @@ Here you can see the entire embed snippet with the updated `opts` object:
 
 ### Passing `custom_id` Parameter via the Redirect URL (Simpler)
 
-⚠️ Important! [Previous versions](https://github.com/moonclerk/developer/blob/9d5c102f84025ece05dd94a941ac98ded1ced809/integration.md#passing-parameters-via-the-redirect-url-simpler) of this document referenced `payment_id` and `customer_id` parameters. These parameters are deprecated and will not be available in the near future.
-
 This is the simplest way to retrieve successful checkout information. When creating/editing your payment form in the MoonClerk dashboard, choose "Redirect to another web page" in the Confirmation section. Add your redirect URL. For this example we will use `http://example.com/success.html`.
 
 We allow for a `custom_id` parameter to be appended to your redirect URL. If a custom ID is passed into the checkout, it will be available for use in the redirect URL. Let's say you have a $10/month recurring checkout and you are sending the `cid` into the checkout, you could create a redirect URL as follows:
@@ -65,15 +63,3 @@ You can then use the [MoonClerk API](https://github.com/moonclerk/developer/blob
 ### Using MoonClerk Webhooks (More Complex)
 
 [See our webhook documentation page.](https://github.com/moonclerk/developer/blob/master/webhooks.md)
-
-### Using Stripe Webhooks (More Complex)
-
-If you are displaying a message at checkout you will not have a redirect url to use on your site. Instead, we recommend subscribing to Stripe's webhooks for your account. We add metadata to MoonClerk checkouts so you should have access to the form ID and either the MoonClerk payment ID or the customer ID.
-
-When you pass a `cid` parameter to the checkout, we add it to the customer (when recurring) or the payment (when one time) as metadata. Once you receive the Stripe webhook, you can parse out the `custom_id` and will also have much of the other data provided by Stripe.
-
-Checkout Stripe's [webhook walkthrough](https://stripe.com/docs/webhooks) and their [full API docs](https://stripe.com/docs/api).
-
-If you find that you need additional MoonClerk data that is not included in the Stripe payload, you can use the various IDs in metadata to access MoonClerk's API and retrieve any other data (such as custom information).
-
-Though this is a much more involved integration, it gives you the ultimate flexibility as well.
