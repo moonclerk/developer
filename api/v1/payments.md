@@ -22,7 +22,6 @@
     "brand": "Visa",
     "bank_name": "Chase"
   },
-  "custom_id": "GHS430",
   "charge_reference": "ch_3ohpsF8ra5rqjj",
   "customer_id": 53453,
   "customer_reference": "cus_4SOZuEc4cxP5L7",
@@ -47,6 +46,19 @@
     }
   },
   "form_id": 112,
+  "custom_id": "GHS430",
+  "checkout": {
+    "amount_due": 1000,
+    "coupon_amount": 1000,
+    "coupon_code": "10off",
+    "date": "2014-07-23T13:44:12Z",
+    "fee": 59,
+    "subtotal": 1000,
+    "token": "YUAf1PJDe1Uho7CnQ1BVPuCz",
+    "total": 1000,
+    "trial_period_days": null,
+    "upfront_amount": 0
+  },
   "coupon": {
     "code": "10off",
     "duration": "once",
@@ -76,22 +88,22 @@ Notes:
 
 `https://api.moonclerk.com/payments`
 
-```json
+```jsonc
 {
   "payments": [
     {
       "id": 1348445,
       "date": "2014-04-08T18:58:35Z",
-      "status": "successful",
-      ...
+      "status": "successful"
+      // ...
     },
     {
       "id": 1348394,
       "date": "2014-04-08T18:57:26Z",
-      "status": "successful",
-      ...
-    },
-    ...
+      "status": "successful"
+      // ...
+    }
+    // ...
   ]
 }
 ```
@@ -128,13 +140,13 @@ The following list filters are supported on payments.
 
 `https://api.moonclerk.com/payments/1348394`
 
-```json
+```jsonc
 {
-  payment: {
+  "payment": {
     "id": 1348394,
     "date": "2014-04-08T18:57:26Z",
-    "status": "successful",
-    ...
+    "status": "successful"
+    // ...
   }
 }
 ```

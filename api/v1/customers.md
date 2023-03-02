@@ -59,15 +59,16 @@ _There is a slight difference in terminology between the MoonClerk web UI and th
   },
   "form_id": 101,
   "checkout": {
-    "date": "2014-07-23T13:44:12Z",
-    "subtotal": 1000,
-    "fee": 200,
-    "upfront_amount": 500,
-    "total": 1700,
-    "coupon_code": "10off",
-    "coupon_amount": 1000,
     "amount_due": 1700,
-    "trial_period_days": null
+    "coupon_amount": 1000,
+    "coupon_code": "10off",
+    "date": "2014-07-23T13:44:12Z",
+    "fee": 200,
+    "subtotal": 1000,
+    "token": "YUAf1PJDe1Uho7CnQ1BVPuCz",
+    "total": 1700,
+    "trial_period_days": null,
+    "upfront_amount": 500
   },
   "subscription": {
     "id": 98,
@@ -112,22 +113,22 @@ Notes:
 
 `https://api.moonclerk.com/customers`
 
-```json
+```jsonc
 {
   "customers": [
     {
       "id": 523425,
       "name": "Ryan Wood",
-      "email": "ryan@moonclerk.com",
-      ...
+      "email": "ryan@moonclerk.com"
+      // ...
     },
     {
       "id": 523458,
       "name": "Dodd Caldwell",
-      "email": "dodd@moonclerk.com",
-      ...
-    },
-    ...
+      "email": "dodd@moonclerk.com"
+      // ...
+    }
+    // ...
   ]
 }
 ```
@@ -174,11 +175,11 @@ The following list filters are supported on customers.
 
 ```jsonc
 {
-  customer: {
+  "customer": {
     "id": 523425,
     "name": "Ryan Wood",
-    "email": "ryan@moonclerk.com",
-    ...
+    "email": "ryan@moonclerk.com"
+    // ...
   }
 }
 ```
