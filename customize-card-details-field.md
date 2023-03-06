@@ -83,11 +83,9 @@ Stripe provides an [options reference](https://stripe.com/docs/elements/appearan
 
 ### Floating Labels
 
----
-
 You can choose between "floating" labels or non floating labels (the default). To enable floating labels, specicfy the option in the top-level. For example:
 
-```jsonc
+```json
 {
   "labels": "floating"
 }
@@ -96,8 +94,6 @@ You can choose between "floating" labels or non floating labels (the default). T
 ![Floating Labels](assets/floating-labels.png)
 
 ### Variables
-
----
 
 Variables control the appearance of the different form components. The variables option works like CSS variables. You can specify CSS values for each variable and reference other variables with the var(--myVariable) syntax.
 
@@ -117,20 +113,18 @@ Variables control the appearance of the different form components. The variables
 ```json
 {
   "variables": {
-    "colorPrimary": "#0570de",
-    "colorBackground": "#ffffff",
-    "colorText": "#30313d",
-    "colorDanger": "#df1b41",
-    "fontFamily": "Ideal Sans, system-ui, sans-serif",
-    "spacingUnit": "2px",
-    "borderRadius": "4px"
+    "colorPrimary": "#439558",
+    "colorBackground": "#d8eede",
+    "colorText": "#439558",
+    "colorDanger": "#ff3f23",
+    "fontFamily": "Tahoma, sans-serif",
+    "spacingUnit": "6px",
+    "borderRadius": "8px"
   }
 }
 ```
 
 ### Rules
-
----
 
 After defining your variables, use rules to seamlessly integrate Elements to match the design of your theme. Rules are defined by combining a high-level name with modifiers, together referred to as 'selectors'. All of the following are vaild selectors.
 
@@ -144,6 +138,7 @@ Here is a list of basic components
 - `.Tab`
 - `.Label`
 - `.Input`
+- `.PickerItem`
 
 Here is a list of basic components with some of their modifiers
 
@@ -156,17 +151,18 @@ Here is a list of basic components with some of their modifiers
 ```json
 {
   "rules": {
-    ".Tab, .Input": {
-      "borderRadius": "8px"
+    ".Tab, .Input, .PickerItem": {
+      "borderRadius": "var(--borderRadius)"
     },
     ".Tab": {
-      "border": "1px solid #FEFEFE",
+      "border": "1px solid #dddddd",
       "boxShadow": "0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 6px rgba(18, 42, 66, 0.02)"
     },
     ".Tab--selected": {
+      "backgroundColor": "var(--colorBackground)",
       "border": "1px solid var(--colorPrimary)"
     },
-    ".Label--invalid": {
+    ".Label--invalid, .Input--invalid, .Error": {
       "color": "var(--colorDanger)"
     },
     ".Input--invalid": {
@@ -177,3 +173,45 @@ Here is a list of basic components with some of their modifiers
 ```
 
 [Much of this documentation was taken from Stripe](https://stripe.com/docs/elements/appearance-api?platform=web#rules). Visit Stripe's documentation for more in-depth information including more options not mentioned here.
+
+### Putting it all together
+
+Here is all the the above sections put together.
+
+```json
+{
+  "labels": "floating",
+  "variables": {
+    "colorPrimary": "#439558",
+    "colorBackground": "#d8eede",
+    "colorText": "#439558",
+    "colorDanger": "#ff3f23",
+    "fontFamily": "Tahoma, sans-serif",
+    "spacingUnit": "6px",
+    "borderRadius": "8px"
+  },
+  "rules": {
+    ".Tab, .Input, .PickerItem": {
+      "borderRadius": "var(--borderRadius)"
+    },
+    ".Tab": {
+      "border": "1px solid #dddddd",
+      "boxShadow": "0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 6px rgba(18, 42, 66, 0.02)"
+    },
+    ".Tab--selected": {
+      "backgroundColor": "var(--colorBackground)",
+      "border": "1px solid var(--colorPrimary)"
+    },
+    ".Label--invalid, .Input--invalid, .Error": {
+      "color": "var(--colorDanger)"
+    },
+    ".Input--invalid": {
+      "boxShadow": "0 1px 1px 0 rgba(0, 0, 0, 0.07), 0 0 0 2px var(--colorDanger)"
+    }
+  }
+}
+```
+
+The above styling will yield a result similar to this:
+
+<img src="assets/result.png" alt="End Result" width="600"/>
