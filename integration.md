@@ -65,3 +65,7 @@ You can then use the [MoonClerk API](https://github.com/moonclerk/developer/blob
 The [Customer](https://github.com/moonclerk/developer/blob/main/webhooks.md#example-customer-payload) and [Payment](https://github.com/moonclerk/developer/blob/main/webhooks.md#example-payment-payload) webhook payloads should contain a `custom_id` field which should match the `cid` you provided.
 
 [See our webhook documentation page.](https://github.com/moonclerk/developer/blob/master/webhooks.md)
+
+---
+
+⚠️ **Important!** Previous versions of this document referenced `payment_id` and `customer_id` parameters for the redirect URL. These parameters are no longer supported. As a replacement, we recommend to use webhooks.
