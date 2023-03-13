@@ -18,7 +18,7 @@ _There is a slight difference in terminology between the MoonClerk web UI and th
     "exp_month": 12,
     "exp_year": 2018,
     "brand": "Visa",
-    "bank_name": "Chase",
+    "bank_name": "Chase"
   },
   "custom_id": "GHS430",
   "customer_reference": "cus_4SOZuEc4cxP5L7",
@@ -59,15 +59,16 @@ _There is a slight difference in terminology between the MoonClerk web UI and th
   },
   "form_id": 101,
   "checkout": {
-    "date": "2014-07-23T13:44:12Z",
-    "subtotal": 1000,
-    "fee": 200,
-    "upfront_amount": 500,
-    "total": 1700,
-    "coupon_code": "10off",
-    "coupon_amount": 1000,
     "amount_due": 1700,
-    "trial_period_days": null
+    "coupon_amount": 1000,
+    "coupon_code": "10off",
+    "date": "2014-07-23T13:44:12Z",
+    "fee": 200,
+    "subtotal": 1000,
+    "token": "YUAf1PJDe1Uho7CnQ1BVPuCz",
+    "total": 1700,
+    "trial_period_days": null,
+    "upfront_amount": 500
   },
   "subscription": {
     "id": 98,
@@ -99,35 +100,35 @@ _There is a slight difference in terminology between the MoonClerk web UI and th
 
 Notes:
 
-* `discount` may be null if there is no current discount
-* Custom field keys are configured in the *Additional Information* section of the payment form builder
-* Any JSON key in the customer object ending in `_reference` corresponds to a related Stripe ID
-* The `custom_id` field is populated if you use one of our [integration methods](https://github.com/moonclerk/developer/blob/master/integration.md).
-* `brand`, `exp_month` and `exp_year` are only present when the payment method used is card
-* `bank_name`is only present when the payment method used is ach
+- `discount` may be null if there is no current discount
+- Custom field keys are configured in the _Additional Information_ section of the payment form builder
+- Any JSON key in the customer object ending in `_reference` corresponds to a related Stripe ID
+- The `custom_id` field is populated if you use one of our [integration methods](https://github.com/moonclerk/developer/blob/master/integration.md).
+- `brand`, `exp_month` and `exp_year` are only present when the payment method used is card
+- `bank_name`is only present when the payment method used is ach
 
 ## List Customers
 
-* `GET /customers` will return all customers
+- `GET /customers` will return all customers
 
 `https://api.moonclerk.com/customers`
 
-```json
+```jsonc
 {
   "customers": [
     {
       "id": 523425,
       "name": "Ryan Wood",
-      "email": "ryan@moonclerk.com",
-      ...
+      "email": "ryan@moonclerk.com"
+      // ...
     },
     {
       "id": 523458,
       "name": "Dodd Caldwell",
-      "email": "dodd@moonclerk.com",
-      ...
-    },
-    ...
+      "email": "dodd@moonclerk.com"
+      // ...
+    }
+    // ...
   ]
 }
 ```
@@ -136,51 +137,49 @@ Notes:
 
 The following list filters are supported on customers.
 
+- `form_id`
+- `checkout_from`
+- `checkout_to`
+- `next_payment_from`
+- `next_payment_to`
+- `status`
 
-* `form_id`
-* `checkout_from`
-* `checkout_to`
-* `next_payment_from`
-* `next_payment_to`
-* `status`
-
-Parameter             | Description
--------------------   |------------
-`form_id`             | the associated MoonClerk form ID (/forms/123)
-`checkout_from`       | customers created on or after this date
-`checkout_to`         | customers created on or before this date
-`next_payment_from`   | subscription due to bill on or after this date
-`next_payment_to`     | subscription due to bill on or before this date
-`status`              | valid options are: active, canceled, expired, past_due, pending, or unpaid
+| Parameter           | Description                                                                |
+| ------------------- | -------------------------------------------------------------------------- |
+| `form_id`           | the associated MoonClerk form ID (/forms/123)                              |
+| `checkout_from`     | customers created on or after this date                                    |
+| `checkout_to`       | customers created on or before this date                                   |
+| `next_payment_from` | subscription due to bill on or after this date                             |
+| `next_payment_to`   | subscription due to bill on or before this date                            |
+| `status`            | valid options are: active, canceled, expired, past_due, pending, or unpaid |
 
 #### Notes
 
-* The date parameters should be in the form of "YYYY-MM-DD"
-* `*_from` parameter will start at the beginning of the day
-* `*_to` will go through the end of that day
-* All times are UTC based
-* You can combine any of the filter parameters
+- The date parameters should be in the form of "YYYY-MM-DD"
+- `*_from` parameter will start at the beginning of the day
+- `*_to` will go through the end of that day
+- All times are UTC based
+- You can combine any of the filter parameters
 
 #### Examples:
 
-* `GET /customers?form_id=5346`
-* `GET /customers?checkout_from=2014-10-01`
-* `GET /customers?next_payment_from=2014-10-01&next_payment_to=2014-10-31`
-
+- `GET /customers?form_id=5346`
+- `GET /customers?checkout_from=2014-10-01`
+- `GET /customers?next_payment_from=2014-10-01&next_payment_to=2014-10-31`
 
 ## Get a Customer
 
-* `GET /customers/:id` will return the specified customer.
+- `GET /customers/:id` will return the specified customer.
 
 `https://api.moonclerk.com/customers/523425`
 
-```json
+```jsonc
 {
-  customer: {
+  "customer": {
     "id": 523425,
     "name": "Ryan Wood",
-    "email": "ryan@moonclerk.com",
-    ...
+    "email": "ryan@moonclerk.com"
+    // ...
   }
 }
 ```

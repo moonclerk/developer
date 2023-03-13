@@ -15,10 +15,9 @@
 }
 ```
 
-
 ## List Forms
 
-* `GET /forms` will return all payment forms
+- `GET /forms` will return all payment forms
 
 `https://api.moonclerk.com/forms`
 
@@ -39,19 +38,18 @@
 }
 ```
 
-
 ## Get a Form
 
-* `GET /forms/:id` will return the specified payment form.
+- `GET /forms/:id` will return the specified payment form.
 
 `https://api.moonclerk.com/forms/234456`
 
-```json
+```jsonc
 {
-  form: {
+  "form": {
     "id": 234456,
-    "title": "Monthly Subscription",
-    ...
+    "title": "Monthly Subscription"
+    // ...
   }
 }
 ```

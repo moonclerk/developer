@@ -1,127 +1,217 @@
-# Styling the "Card Details" field on your payment form
+# Styling the "Payment Details" field on your payment form
 
-## What has changed?
-
-MoonClerk has always supported applying custom CSS (Cascading Style Sheets) to your payment forms to create a pleasing and brand-matched experience for your payers. Due to changes in PCI Security Standards, Stripe introduced Stripe Elements to comply with these changes. Effectively, it moves the credit card input fields from MoonClerk's server to Stripe's servers. The net effect is that as of March 8, 2018, styling of the new Stripe Elements card field cannot be accomplished using CSS alone. If you need to provide additional styling to your payment form's card details field, you'll need to use a combination of CSS and custom JSON styling.
+MoonClerk has always supported applying custom CSS to your payment forms to create a pleasing and brand-matched experience for your payers. Due to PCI Security Standards, styling of the new Stripe Payment Element cannot be accomplished using CSS alone. If you need to provide additional styling to your payment form's payment details field, you'll need to use a combination of CSS and custom JSON styling.
 
 This is an advanced feature and there is a possibility that implementing it incorrectly could cause issues with your checkout. We suggest reading over the documentation carefully and reviewing the entire checkout process after you have customized the form to ensure it functions properly.
 
-## OK, I want to customize my Card Details field...
+## Styling around the payment details fields
 
-There are a few things you need to know.
-
-### Styling around the card input
-
-If you want to style *around* the input field, you'll still want to use custom CSS. The Card Element is contained in the `.StripeElement` class. Applying styles to it will effect the border, padding, margin, etc. **Do not attempt to style anything with CSS inside of the `.StripeElement` class. It will fail and could break your checkout.** Here is an example of applying custom CSS to the `.StripeElement` class:
+If you want to style _around_ the payment details fields, you'll still want to use custom CSS. The Payment Element is contained in the `.StripePaymentElement` class. Applying styles to it will effect the border, padding, margin, etc. **Do not attempt to style anything with CSS inside of the `.StripePaymentElement` class. It will fail and could break your checkout.** Here is an example of applying custom CSS to the `.StripePaymentElement` class:
 
 ```css
-.StripeElement {
+.StripePaymentElement {
   background-color: white;
   height: 40px;
   padding: 10px 12px;
   border-radius: 4px;
   border: 1px solid transparent;
   box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
-}
-
-.StripeElement--focus {
-  box-shadow: 0 1px 3px 0 #cfd7df;
-}
-
-.StripeElement--invalid {
-  border-color: #fa755a;
-}
-
-.StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
 }
 ```
 
-### Styling inside the card input
+## Styling inside the payment details fields
 
-If you want to make any changes inside of the card input, you'll need to add properly formatted JSON to the "JSON Styling for Card Details Field" text area.
+If you want to make any changes inside of the payment details fields, you'll need to add properly formatted JSON to the "JSON styling for the Payment Element" text area. This can be accessed on an edit page for a [Theme](https://app.moonclerk.com/themes/).
 
-Stripe provides an [options reference](https://stripe.com/docs/stripe-js/reference#element-options) to help familiarize yourself with the options available.
+Stripe provides an [options reference](https://stripe.com/docs/elements/appearance-api) to help familiarize yourself with the options available.
 
 **While the Stripe documentation shows options in JavaScript object format, MoonClerk requires that all option configuration be in JSON format. While very similar, there are key differences.**
 
-#### BAD!
+**BAD!** ❌
 
 ```javascript
 {
-  base: {
-    color: '#32325d',
-    lineHeight: '18px',
-    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-    fontSmoothing: 'antialiased',
-    fontSize: '16px',
-    '::placeholder': {
-      color: '#aab7c4'
-    }
+  theme: "none",
+  variables: {
+    colorDanger: "#A34033",
+    colorIconTabSelected: "#333333",
+    colorIconTab: "#333333",
+    colorPrimary:"#f20055",
+    colorText: "#30313d"
   },
-  invalid: {
-    color: '#fa755a',
-    iconColor: '#fa755a'
+  rules: {
+    ".Tab": {
+      border: "1px solid #E0E6EB",
+    },
+    ".Tab:hover": {
+      color: "var(--colorText)",
+    },
+    ".Tab--selected": {
+      borderColor: "#E0E6EB",
+    },
   }
 }
 ```
 
-#### GOOD
+**GOOD** ✅
 
 ```json
 {
-  "base": {
-    "color": "#32325d",
-    "lineHeight": "18px",
-    "fontFamily": "'Helvetica Neue', Helvetica, sans-serif",
-    "fontSmoothing": "antialiased",
-    "fontSize": "16px",
-    "::placeholder": {
-      "color": "#aab7c4"
-    }
+  "theme": "none",
+  "variables": {
+    "colorDanger": "#A34033",
+    "colorIconTabSelected": "#333333",
+    "colorIconTab": "#333333",
+    "colorPrimary": "#f20055",
+    "colorText": "#30313d"
   },
-  "invalid": {
-    "color": "#fa755a",
-    "iconColor": "#fa755a"
+  "rules": {
+    ".Tab": {
+      "border": "1px solid #E0E6EB"
+    },
+    ".Tab:hover": {
+      "color": "var(--colorText)"
+    },
+    ".Tab--selected": {
+      "borderColor": "#E0E6EB"
+    }
   }
 }
 ```
 
-There are four variants for your Card Details form field. Each variant should be a nested object within your main object:
+⚠️ **All Payment Element form field styling should exist (as valid JSON) within a single object, with all keys and values being wrapped in double quotes. We recommend composing your valid JSON in an external text editor or using a linter to assure you are providing valid JSON.**
 
-`base` - all other variants inherit from this style
-`complete` - applied only for valid input
-`empty` - applied when there is no customer input
-`invalid` - applied only for invalid input
+### Floating Labels
 
+You can choose between "floating" labels or non floating labels (the default). To enable floating labels, specicfy the option in the top-level. For example:
 
-For each of the variants above, the properties below can be customized with CSS properties:
-````
-color
-fontFamily
-fontSize
-fontSmoothing
-fontStyle
-fontVariant
-iconColor
-lineHeight
-letterSpacing
-textAlign
-textDecoration
-textShadow
-textTransform
-````
+```json
+{
+  "labels": "floating"
+}
+```
 
-Further, the following pseudo-classes can be styled with the above properties, as a nested object inside each variants:
-````
-:hover
-:focus
-::placeholder
-::selection
-:-webkit-autofill
-::-ms-clear
-````
+![Floating Labels](assets/floating-labels.png)
 
-All Card Details form field styling should exist (as valid JSON) within a single object, with all keys and values being wrapped in double quotes. We recommend composing your valid JSON in an external text editor or using a linter to assure you are providing valid JSON.
+### Variables
+
+Variables control the appearance of the different form components. The variables option works like CSS variables. You can specify CSS values for each variable and reference other variables with the var(--myVariable) syntax.
+
+| Variable          | Description                                                                                                                                                          |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fontFamily`      | The font family used throughout Elements. Elements supports custom fonts by passing the fonts option to the Elements group.                                          |
+| `fontSizeBase`    | The font size that’s set on the root of the Element. By default, other font size variables like fontSizeXs or fontSizeSm are scaled from this value using rem units. |
+| `spacingUnit`     | The base spacing unit that all other spacing is derived from. Increase or decrease this value to make your layout more or less spacious.                             |
+| `borderRadius`    | The border radius used for tabs, inputs, and other components in the Element.                                                                                        |
+| `colorPrimary`    | A primary color used throughout the Element. Set this to your primary brand color.                                                                                   |
+| `colorBackground` | The color used for the background of inputs, tabs, and other components in the Element.                                                                              |
+| `colorText`       | The default text color used in the Element.                                                                                                                          |
+| `colorDanger`     | A color used to indicate errors or destructive actions in the Element.                                                                                               |
+
+[Much of this documentation was taken from Stripe](https://stripe.com/docs/elements/appearance-api?platform=web#variables). Visit Stripe's documentation for more in-depth information including more options not mentioned here.
+
+```json
+{
+  "variables": {
+    "colorPrimary": "#439558",
+    "colorBackground": "#d8eede",
+    "colorText": "#439558",
+    "colorDanger": "#ff3f23",
+    "fontFamily": "Tahoma, sans-serif",
+    "spacingUnit": "6px",
+    "borderRadius": "8px"
+  }
+}
+```
+
+### Rules
+
+After defining your variables, use rules to seamlessly integrate Elements to match the design of your theme. Rules are defined by combining a high-level name with modifiers, together referred to as 'selectors'. All of the following are vaild selectors.
+
+- `.Tab, .Label, .Input`
+- `.Tab:focus`
+- `.Input--invalid, .Label--invalid`
+- `.Input::placeholder`
+
+Here is a list of basic components
+
+- `.Tab`
+- `.Label`
+- `.Input`
+- `.PickerItem`
+
+Here is a list of basic components with some of their modifiers
+
+- `.Tab:focus`
+- `.Tab--selected`
+- `.Label--invalid`
+- `.Input:focus`
+- `.Input--invalid`
+
+```json
+{
+  "rules": {
+    ".Tab, .Input, .PickerItem": {
+      "borderRadius": "var(--borderRadius)"
+    },
+    ".Tab": {
+      "border": "1px solid #dddddd",
+      "boxShadow": "0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 6px rgba(18, 42, 66, 0.02)"
+    },
+    ".Tab--selected": {
+      "backgroundColor": "var(--colorBackground)",
+      "border": "1px solid var(--colorPrimary)"
+    },
+    ".Label--invalid, .Input--invalid, .Error": {
+      "color": "var(--colorDanger)"
+    },
+    ".Input--invalid": {
+      "boxShadow": "0 1px 1px 0 rgba(0, 0, 0, 0.07), 0 0 0 2px var(--colorDanger)"
+    }
+  }
+}
+```
+
+[Much of this documentation was taken from Stripe](https://stripe.com/docs/elements/appearance-api?platform=web#rules). Visit Stripe's documentation for more in-depth information including more options not mentioned here.
+
+### Putting it all together
+
+Here is all the the above sections put together.
+
+```json
+{
+  "labels": "floating",
+  "variables": {
+    "colorPrimary": "#439558",
+    "colorBackground": "#d8eede",
+    "colorText": "#439558",
+    "colorDanger": "#ff3f23",
+    "fontFamily": "Tahoma, sans-serif",
+    "spacingUnit": "6px",
+    "borderRadius": "8px"
+  },
+  "rules": {
+    ".Tab, .Input, .PickerItem": {
+      "borderRadius": "var(--borderRadius)"
+    },
+    ".Tab": {
+      "border": "1px solid #dddddd",
+      "boxShadow": "0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 6px rgba(18, 42, 66, 0.02)"
+    },
+    ".Tab--selected": {
+      "backgroundColor": "var(--colorBackground)",
+      "border": "1px solid var(--colorPrimary)"
+    },
+    ".Label--invalid, .Input--invalid, .Error": {
+      "color": "var(--colorDanger)"
+    },
+    ".Input--invalid": {
+      "boxShadow": "0 1px 1px 0 rgba(0, 0, 0, 0.07), 0 0 0 2px var(--colorDanger)"
+    }
+  }
+}
+```
+
+The above styling will yield a result similar to this:
+
+<img src="assets/result.png" alt="End Result" width="600"/>
