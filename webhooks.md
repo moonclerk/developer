@@ -39,6 +39,7 @@ MoonClerk expects to receive a **200-204 HTTP** response code from the endpoint.
       "bank_name": "Chase"
     },
     "charge_reference": "ch_3ohpsF8ra5rqjj",
+    // customer_id and customer_reference are available only if the payment was from a recurring checkout
     "customer_id": 53453,
     "customer_reference": "cus_4SOZuEc4cxP5L7",
     "invoice_reference": "in_1La8pLqS2UnhPZ",

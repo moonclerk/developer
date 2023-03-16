@@ -82,7 +82,7 @@ The actual redirect URL after checkout will look something like this.
 http://example.com/success.html?token=m6qQHPi56gnjShmGx4P2yeKz
 ```
 
-This same token can be seen in the [Payment API response](https://github.com/moonclerk/developer/blob/main/api/v1/payments.md) (if the checkout was one-time) and [Customer API response](https://github.com/moonclerk/developer/blob/main/api/v1/customers.md). It is also available in the [webhook payload data](https://github.com/moonclerk/developer/blob/main/webhooks.md).
+This same token can be seen in the [webhook payload data](https://github.com/moonclerk/developer/blob/main/webhooks.md). It is also available in the [Payment API response](https://github.com/moonclerk/developer/blob/main/api/v1/payments.md) (if the checkout was one-time) and [Customer API response](https://github.com/moonclerk/developer/blob/main/api/v1/customers.md).
 
 ---
 
