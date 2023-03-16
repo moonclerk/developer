@@ -2,7 +2,7 @@
 
 ## The Payment Object
 
-```json
+```jsonc
 {
   "id": 1348394,
   "date": "2014-04-08T18:57:26Z",
@@ -47,6 +47,7 @@
   },
   "form_id": 112,
   "custom_id": "GHS430",
+  // Checkout data is available only if the payment was from a one-time checkout
   "checkout": {
     "amount_due": 1000,
     "coupon_amount": 1000,

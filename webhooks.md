@@ -15,7 +15,7 @@ MoonClerk expects to receive a **200-204 HTTP** response code from the endpoint.
 
 ### Example Payment Payload
 
-```json
+```jsonc
 {
   "event": "payment_created",
   "object": "payment",
@@ -38,7 +38,6 @@ MoonClerk expects to receive a **200-204 HTTP** response code from the endpoint.
       "brand": "Visa",
       "bank_name": "Chase"
     },
-    "custom_id": "GHS430",
     "charge_reference": "ch_3ohpsF8ra5rqjj",
     "customer_id": 53453,
     "customer_reference": "cus_4SOZuEc4cxP5L7",
@@ -72,6 +71,20 @@ MoonClerk expects to receive a **200-204 HTTP** response code from the endpoint.
       "duration_in_months": null,
       "max_redemptions": null,
       "redeem_by": null
+    },
+    "custom_id": "GHS430",
+    // Checkout data is available only if the payment was from a one-time checkout
+    "checkout": {
+      "amount_due": 1000,
+      "coupon_amount": 0,
+      "coupon_code": null,
+      "date": "2022-04-08T18:57:26Z",
+      "fee": 0,
+      "subtotal": 1000,
+      "token": "sGhAhMWZdVdJqEYByx4xcLP9",
+      "total": 1000,
+      "trial_period_days": null,
+      "upfront_amount": 0
     }
   }
 }
@@ -134,35 +147,17 @@ MoonClerk expects to receive a **200-204 HTTP** response code from the endpoint.
       }
     },
     "form_id": 101,
-    "custom_fields": {
-      "shirt_size": {
-        "id": 23452,
-        "type": "string",
-        "response": "XL"
-      },
-      "shipping_address": {
-        "id": 23453,
-        "type": "address",
-        "response": {
-          "line1": "123 Main St.",
-          "line2": "Ste. 153",
-          "city": "Greenville",
-          "state": "SC",
-          "postal_code": "29651",
-          "country": "United States"
-        }
-      }
-    },
     "checkout": {
-      "date": "2022-07-23T13:44:12Z",
-      "subtotal": 1000,
-      "fee": 200,
-      "upfront_amount": 500,
-      "total": 1700,
-      "coupon_code": "10off",
-      "coupon_amount": 1000,
       "amount_due": 1700,
-      "trial_period_days": null
+      "coupon_amount": 1000,
+      "coupon_code": "10off",
+      "date": "2014-07-23T13:44:12Z",
+      "fee": 200,
+      "subtotal": 1000,
+      "token": "YUAf1PJde1Uho7CnQ1BVPuCz",
+      "total": 1700,
+      "trial_period_days": null,
+      "upfront_amount": 500
     },
     "subscription": {
       "id": 98,
