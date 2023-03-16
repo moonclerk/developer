@@ -66,6 +66,24 @@ The [Customer](https://github.com/moonclerk/developer/blob/main/webhooks.md#exam
 
 [See our webhook documentation page.](https://github.com/moonclerk/developer/blob/master/webhooks.md)
 
+## Getting a Checkout Token in the Redirect URL
+
+You can provide a special `{{checkout_token}}` variable in the Payment Form's redirect URL. When configured, after a successful checkout we will replace the variable with a token that is unique to each checkout.
+
+For example, if this is the configured redirect URL on the MoonClerk Payment Form:
+
+```
+http://example.com/success.html?token={{checkout_token}}
+```
+
+The actual redirect URL after checkout will look something like this.
+
+```
+http://example.com/success.html?token=m6qQHPi56gnjShmGx4P2yeKz
+```
+
+This same token can be seen in the [webhook payload data](https://github.com/moonclerk/developer/blob/main/webhooks.md). It is also available in the [Payment API response](https://github.com/moonclerk/developer/blob/main/api/v1/payments.md) (if the checkout was one-time) and [Customer API response](https://github.com/moonclerk/developer/blob/main/api/v1/customers.md).
+
 ---
 
 ⚠️ **Important!** Previous versions of this document referenced `payment_id` and `customer_id` parameters for the redirect URL. These parameters are no longer supported. As a replacement, we recommend to use webhooks.

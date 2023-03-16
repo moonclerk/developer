@@ -2,7 +2,7 @@
 
 ## The Payment Object
 
-```json
+```jsonc
 {
   "id": 1348394,
   "date": "2014-04-08T18:57:26Z",
@@ -23,6 +23,7 @@
     "bank_name": "Chase"
   },
   "charge_reference": "ch_3ohpsF8ra5rqjj",
+  // customer_id and customer_reference are available only if the payment was from a recurring checkout
   "customer_id": 53453,
   "customer_reference": "cus_4SOZuEc4cxP5L7",
   "invoice_reference": "in_1La8pLqS2UnhPZ",
@@ -47,6 +48,7 @@
   },
   "form_id": 112,
   "custom_id": "GHS430",
+  // Checkout data is available only if the payment was from a one-time checkout
   "checkout": {
     "amount_due": 1000,
     "coupon_amount": 1000,
