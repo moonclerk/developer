@@ -14,9 +14,9 @@ https://app.moonclerk.com/pay/5/3x993hrglt
 
 #### Notes
 
+- When this page is visited we will fire a `checkout_start` event.
 - The `3x993hrglt` value in the example above will vary between payment forms and represents the form token.
 - The `/5` portion of the URL may be removed in the future.
-- When this page is visited we will fire a `checkout_start` event.
 
 ### Moving to the payment page
 
@@ -28,8 +28,8 @@ https://app.moonclerk.com/pay/5/3x993hrglt/i/efv7Rb2Hgnb5us2GxmPN4tYW
 
 #### Notes
 
-- The `efv7Rb2Hgnb5us2GxmPN4tYW` value above will vary between payers' checkout sessions.
 - When this page is visited we will fire a `checkout_add_payment` event.
+- The `efv7Rb2Hgnb5us2GxmPN4tYW` value above will vary between payers' checkout sessions.
 
 ### Editing the checkout
 
