@@ -7,15 +7,16 @@ Welcome!
 - [API Documentation](https://github.com/moonclerk/developer/blob/master/api/README.md)
 - [MoonClerk Webhooks Documentation](https://github.com/moonclerk/developer/blob/master/webhooks.md)
 
+## Integrating & Customizing
+
+- [Integrating with Your Site](https://github.com/moonclerk/developer/blob/master/integration.md)
+- [Working with Google Analytics (v4)](https://github.com/moonclerk/developer/blob/main/analytics.md)
+- [Styling the "Payment Details" section on your payment form](/customize-card-details-field.md)
+
 ## Notification Email Templating Using Liquid
 
 - [Liquid Variables & Filters](https://github.com/moonclerk/developer/blob/master/liquid/variables.md)
 - [Liquid Examples](https://github.com/moonclerk/developer/blob/master/liquid/examples.md)
-
-## Integrating with Your Site
-
-- [Other Integration Methods](https://github.com/moonclerk/developer/blob/master/integration.md)
-- [Styling the "Card Details" field on your payment form](/customize-card-details-field.md)
 
 ## Help us make it better
 
