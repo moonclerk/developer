@@ -9,6 +9,7 @@ Welcome!
 
 ## Integrating & Customizing
 
+- [Embedding a Payment Form on Your Site](https://github.com/moonclerk/developer/blob/master/embedding.md)
 - [Integrating with Your Site](https://github.com/moonclerk/developer/blob/master/integration.md)
 - [Working with Google Analytics (v4)](https://github.com/moonclerk/developer/blob/main/analytics.md)
 - [Styling the "Payment Details" section on your payment form](/customize-card-details-field.md)

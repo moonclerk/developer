@@ -22,7 +22,7 @@ https://app.moonclerk.com/pay/8h7frjfytj?cid=234
 
 ### Embedded Checkout
 
-If you are using an embed code for your form, you'll need to dynamically add the `cid` to the `opts` object. Looking inside the embed code, you'll find an `opts` object similar to this:
+If you are using [an embed code for your form](https://github.com/moonclerk/developer/blob/master/embedding.md), you'll need to dynamically add the `cid` to the `opts` object. Looking inside the embed code, you'll find an `opts` object similar to this:
 
 ```
 opts={"checkoutToken":"8h7frjfytj","width":"100%"};
@@ -37,7 +37,7 @@ opts={"checkoutToken":"8h7frjfytj","width":"100%","cid":"234"};
 Here you can see the entire embed snippet with the updated `opts` object:
 
 ```
-<div id="mc8h7frjfytj"><a href="http://moonclerk.dev/pay/8h7frjfytj">Easy Time</a></div><script type="text/javascript">var mc8h7frjfytj;(function(d,t) {var s=d.createElement(t),opts={"checkoutToken":"8h7frjfytj","width":"100%","cid":"234"};s.src='http://moonclerk.dev/assets/embed.js';s.onload=s.onreadystatechange = function() {var rs=this.readyState;if(rs) if(rs!='complete') if(rs!='loaded') return;try {mc8h7frjfytj=new MoonclerkEmbed(opts);mc8h7frjfytj.display();} catch(e){}};var scr=d.getElementsByTagName(t)[0];scr.parentNode.insertBefore(s,scr);})(document,'script');</script>
+<div id="mc8h7frjfytj"><a href="https://app.moonclerk.com/pay/8h7frjfytj">My Payment Form</a></div><script type="text/javascript">var mc8h7frjfytj;(function(d,t) {var s=d.createElement(t),opts={"checkoutToken":"8h7frjfytj","width":"100%","cid":"234"};s.src='https://d2l7e0y6ygya2s.cloudfront.net/assets/embed.js';s.onload=s.onreadystatechange = function() {var rs=this.readyState;if(rs) if(rs!='complete') if(rs!='loaded') return;try {mc8h7frjfytj=new MoonclerkEmbed(opts);mc8h7frjfytj.display();} catch(e){}};var scr=d.getElementsByTagName(t)[0];scr.parentNode.insertBefore(s,scr);})(document,'script');</script>
 ```
 
 ## Retrieving the Custom ID
