@@ -80,7 +80,7 @@ Notes:
 - `fee` is the Stripe Fee
 - `customer_reference` will be present if the payment was attached to a Stripe customer (vs. a one time payment). Otherwise, it will be null.
 - `invoice_reference` will be present if the payment was generated from a Stripe invoice (vs. a one off payment). Otherwise, it will be null.
-- The `custom_id` field is populated if you use one of our [integration methods](https://github.com/moonclerk/developer/blob/master/integration.md).
+- The `custom_id` field is populated if you use one of our [integration methods](/integration.md).
 - `brand`, `exp_month` and `exp_year` are only present when the payment method used is card
 - `bank_name` is only present when the payment method used is ach
 

@@ -22,7 +22,7 @@ https://app.moonclerk.com/pay/8h7frjfytj?cid=234
 
 ### Embedded Checkout
 
-If you are using [an embed code for your form](https://github.com/moonclerk/developer/blob/master/embedding.md), you'll need to dynamically add the `cid` to the `opts` object. Looking inside the embed code, you'll find an `opts` object similar to this:
+If you are using [an embed code for your form](/embedding.md), you'll need to dynamically add the `cid` to the `opts` object. Looking inside the embed code, you'll find an `opts` object similar to this:
 
 ```
 opts={"checkoutToken":"8h7frjfytj","width":"100%"};
@@ -58,13 +58,13 @@ After a successful checkout, those curly brackets will be replaced with the actu
 http://example.com/success.html?custom_id=123
 ```
 
-You can then use the [MoonClerk API](https://github.com/moonclerk/developer/blob/master/api/README.md) retrieve MoonClerk customer or payment data and correlate the custom_id. The payload for both customers and payments contain a `custom_id` field which should match the `cid` you provided.
+You can then use the [MoonClerk API](/api/README.md) retrieve MoonClerk customer or payment data and correlate the custom_id. The payload for both customers and payments contain a `custom_id` field which should match the `cid` you provided.
 
 ### Using MoonClerk Webhooks (More Complex)
 
-The [Customer](https://github.com/moonclerk/developer/blob/main/webhooks.md#example-customer-payload) and [Payment](https://github.com/moonclerk/developer/blob/main/webhooks.md#example-payment-payload) webhook payloads should contain a `custom_id` field which should match the `cid` you provided.
+The [Customer](/webhooks.md#example-customer-payload) and [Payment](/webhooks.md#example-payment-payload) webhook payloads should contain a `custom_id` field which should match the `cid` you provided.
 
-[See our webhook documentation page.](https://github.com/moonclerk/developer/blob/master/webhooks.md)
+[See our webhook documentation page.](/webhooks.md)
 
 ## Getting a Checkout Token in the Redirect URL
 
@@ -82,7 +82,7 @@ The actual redirect URL after checkout will look something like this.
 http://example.com/success.html?token=m6qQHPi56gnjShmGx4P2yeKz
 ```
 
-This same token can be seen in the [webhook payload data](https://github.com/moonclerk/developer/blob/main/webhooks.md). It is also available in the [Payment API response](https://github.com/moonclerk/developer/blob/main/api/v1/payments.md) (if the checkout was one-time) and [Customer API response](https://github.com/moonclerk/developer/blob/main/api/v1/customers.md).
+This same token can be seen in the [webhook payload data](/webhooks.md). It is also available in the [Payment API response](/api/v1/payments.md) (if the checkout was one-time) and [Customer API response](/api/v1/customers.md).
 
 ---
 

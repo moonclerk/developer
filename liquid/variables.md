@@ -111,7 +111,7 @@ Here is a sample of the structure of some custom field data:
   }
 ```
 
-[Browse examples of how to use custom fields within a template](https://github.com/moonclerk/developer/blob/master/liquid/examples.md#using-custom-fields).
+[Browse examples of how to use custom fields within a template](/liquid/examples.md#using-custom-fields).
 
 ### Digital Delivery Order
 

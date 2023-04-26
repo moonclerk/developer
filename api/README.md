@@ -48,9 +48,9 @@ Then to get the next page of 20:
 
 ## Available API Endpoints
 
-- [Customers](https://github.com/moonclerk/developer/blob/master/api/v1/customers.md) (known as "Plans" in the MoonClerk UI)
-- [Payments](https://github.com/moonclerk/developer/blob/master/api/v1/payments.md)
-- [Forms](https://github.com/moonclerk/developer/blob/master/api/v1/forms.md)
+- [Customers](/api/v1/customers.md) (known as "Plans" in the MoonClerk UI)
+- [Payments](/api/v1/payments.md)
+- [Forms](/api/v1/forms.md)
 
 ## API libraries
 

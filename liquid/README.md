@@ -2,5 +2,5 @@
 
 Need help formatting Liquid templates with MoonClerk notifications:
 
-- [Liquid Variables & Filters for MoonClerk](https://github.com/moonclerk/developer/blob/master/liquid/variables.md)
-- [Liquid Examples for MoonClerk](https://github.com/moonclerk/developer/blob/master/liquid/examples.md)
+- [Liquid Variables & Filters for MoonClerk](/liquid/variables.md)
+- [Liquid Examples for MoonClerk](/liquid/examples.md)
