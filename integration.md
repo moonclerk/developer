@@ -1,6 +1,29 @@
 # Integrating With Your Site
 
-If you'd like to be able to programmatically track a user through the checkout process, this page is for you.
+## Prefilling a Payment Form with data
+
+You can pass parameters to the MoonClerk Payment Form that will make select fields pre-filled. This is a great option if you already have customer information and would like to link to a payment form from an app you control.
+
+### Available Parameters
+
+| Name           | Example value      | Note                                                          |
+| -------------- | ------------------ | ------------------------------------------------------------- |
+| `amount_cents` | `1000`             | Payment Form must have an amount that is decided at checkout. |
+| `cid`          | `12-5355-55`       | [See below](#passing-a-custom-id) for more info on Custom IDs |
+| `email`        | `leon@example.com` |                                                               |
+| `name`         | `Leon+Bridges`     |                                                               |
+
+You can set the URL parameters of the form like so:
+
+```
+https://app.moonclerk.com/pay/8h7frjfytj?amount_cents=1000&name=Leon+Bridges&email=leon@example.com
+```
+
+Doing so will yield the following result:
+
+![Pre-filled form](assets/pre-filled.png)
+
+[See embedding documentation](/embedding.md) for info on how to accomplish this with an embedded checkout.
 
 ## Passing a Custom ID
 
@@ -22,7 +45,7 @@ https://app.moonclerk.com/pay/8h7frjfytj?cid=234
 
 ### Embedded Checkout
 
-If you are using an embed code for your form, you'll need to dynamically add the `cid` to the `opts` object. Looking inside the embed code, you'll find an `opts` object similar to this:
+If you are using [an embed code for your form](/embedding.md), you'll need to dynamically add the `cid` to the `opts` object. Looking inside the embed code, you'll find an `opts` object similar to this:
 
 ```
 opts={"checkoutToken":"8h7frjfytj","width":"100%"};
@@ -37,7 +60,7 @@ opts={"checkoutToken":"8h7frjfytj","width":"100%","cid":"234"};
 Here you can see the entire embed snippet with the updated `opts` object:
 
 ```
-<div id="mc8h7frjfytj"><a href="http://moonclerk.dev/pay/8h7frjfytj">Easy Time</a></div><script type="text/javascript">var mc8h7frjfytj;(function(d,t) {var s=d.createElement(t),opts={"checkoutToken":"8h7frjfytj","width":"100%","cid":"234"};s.src='http://moonclerk.dev/assets/embed.js';s.onload=s.onreadystatechange = function() {var rs=this.readyState;if(rs) if(rs!='complete') if(rs!='loaded') return;try {mc8h7frjfytj=new MoonclerkEmbed(opts);mc8h7frjfytj.display();} catch(e){}};var scr=d.getElementsByTagName(t)[0];scr.parentNode.insertBefore(s,scr);})(document,'script');</script>
+<div id="mc8h7frjfytj"><a href="https://app.moonclerk.com/pay/8h7frjfytj">My Payment Form</a></div><script type="text/javascript">var mc8h7frjfytj;(function(d,t) {var s=d.createElement(t),opts={"checkoutToken":"8h7frjfytj","width":"100%","cid":"234"};s.src='https://d2l7e0y6ygya2s.cloudfront.net/assets/embed.js';s.onload=s.onreadystatechange = function() {var rs=this.readyState;if(rs) if(rs!='complete') if(rs!='loaded') return;try {mc8h7frjfytj=new MoonclerkEmbed(opts);mc8h7frjfytj.display();} catch(e){}};var scr=d.getElementsByTagName(t)[0];scr.parentNode.insertBefore(s,scr);})(document,'script');</script>
 ```
 
 ## Retrieving the Custom ID
@@ -58,13 +81,13 @@ After a successful checkout, those curly brackets will be replaced with the actu
 http://example.com/success.html?custom_id=123
 ```
 
-You can then use the [MoonClerk API](https://github.com/moonclerk/developer/blob/master/api/README.md) retrieve MoonClerk customer or payment data and correlate the custom_id. The payload for both customers and payments contain a `custom_id` field which should match the `cid` you provided.
+You can then use the [MoonClerk API](/api/README.md) retrieve MoonClerk customer or payment data and correlate the custom_id. The payload for both customers and payments contain a `custom_id` field which should match the `cid` you provided.
 
 ### Using MoonClerk Webhooks (More Complex)
 
-The [Customer](https://github.com/moonclerk/developer/blob/main/webhooks.md#example-customer-payload) and [Payment](https://github.com/moonclerk/developer/blob/main/webhooks.md#example-payment-payload) webhook payloads should contain a `custom_id` field which should match the `cid` you provided.
+The [Customer](/webhooks.md#example-customer-payload) and [Payment](/webhooks.md#example-payment-payload) webhook payloads should contain a `custom_id` field which should match the `cid` you provided.
 
-[See our webhook documentation page.](https://github.com/moonclerk/developer/blob/master/webhooks.md)
+[See our webhook documentation page.](/webhooks.md)
 
 ## Getting a Checkout Token in the Redirect URL
 
@@ -82,7 +105,7 @@ The actual redirect URL after checkout will look something like this.
 http://example.com/success.html?token=m6qQHPi56gnjShmGx4P2yeKz
 ```
 
-This same token can be seen in the [webhook payload data](https://github.com/moonclerk/developer/blob/main/webhooks.md). It is also available in the [Payment API response](https://github.com/moonclerk/developer/blob/main/api/v1/payments.md) (if the checkout was one-time) and [Customer API response](https://github.com/moonclerk/developer/blob/main/api/v1/customers.md).
+This same token can be seen in the [webhook payload data](/webhooks.md). It is also available in the [Payment API response](/api/v1/payments.md) (if the checkout was one-time) and [Customer API response](/api/v1/customers.md).
 
 ---
 

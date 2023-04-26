@@ -103,7 +103,7 @@ Notes:
 - `discount` may be null if there is no current discount
 - Custom field keys are configured in the _Additional Information_ section of the payment form builder
 - Any JSON key in the customer object ending in `_reference` corresponds to a related Stripe ID
-- The `custom_id` field is populated if you use one of our [integration methods](https://github.com/moonclerk/developer/blob/master/integration.md).
+- The `custom_id` field is populated if you use one of our [integration methods](/integration.md).
 - `brand`, `exp_month` and `exp_year` are only present when the payment method used is card
 - `bank_name`is only present when the payment method used is ach
 

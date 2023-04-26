@@ -21,18 +21,18 @@
 
 `https://api.moonclerk.com/forms`
 
-```json
+```jsonc
 {
   "forms": [
     {
       "id": 234456,
-      "title": "Monthly Subscription",
-      ...
+      "title": "Monthly Subscription"
+      // ...
     },
     {
       "id": 234484,
-      "title": "Annual Subscription",
-      ...
+      "title": "Annual Subscription"
+      // ...
     }
   ]
 }

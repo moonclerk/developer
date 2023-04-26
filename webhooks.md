@@ -9,6 +9,7 @@ MoonClerk expects to receive a **200-204 HTTP** response code from the endpoint.
 | Topic               | Description                                                                          | Payload Type                          |
 | ------------------- | ------------------------------------------------------------------------------------ | ------------------------------------- |
 | Payment Created     | Notifies when a payment is created in any state (failed, succeeded, etc).            | [Payment](#example-payment-payload)   |
+| Payment Succeeded   | Notifies when a payment succeeds.                                                    | [Payment](#example-payment-payload)   |
 | Plan Created        | Notifies when a plan is created.                                                     | [Customer](#example-customer-payload) |
 | Plan Ended          | Notifies when a plan is canceled or when the set number periods have been exhausted. | [Customer](#example-customer-payload) |
 | Plan Payment Failed | Notifies when a payment related to a plan has failed.                                | [Customer](#example-customer-payload) |
