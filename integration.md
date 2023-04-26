@@ -1,6 +1,29 @@
 # Integrating With Your Site
 
-If you'd like to be able to programmatically track a user through the checkout process, this page is for you.
+## Prefilling a Payment Form with data
+
+You can pass parameters to the MoonClerk Payment Form that will make select fields pre-filled. This is a great option if you already have customer information and would like to link to a payment form from an app you control.
+
+### Available Parameters
+
+| Name           | Example value      | Note                                                          |
+| -------------- | ------------------ | ------------------------------------------------------------- |
+| `amount_cents` | `1000`             | Payment Form must have an amount that is decided at checkout. |
+| `cid`          | `12-5355-55`       | [See below](#passing-a-custom-id) for more info on Custom IDs |
+| `email`        | `leon@example.com` |                                                               |
+| `name`         | `Leon+Bridges`     |                                                               |
+
+You can set the URL parameters of the form like so:
+
+```
+https://app.moonclerk.com/pay/8h7frjfytj?amount_cents=1000&name=Leon+Bridges&email=leon@example.com
+```
+
+Doing so will yield the following result:
+
+![Pre-filled form](assets/pre-filled.png)
+
+[See embedding documentation](/embedding.md) for info on how to accomplish this with an embedded checkout.
 
 ## Passing a Custom ID
 
