@@ -31,13 +31,10 @@ MoonClerk expects to receive a **200-204 HTTP** response code from the endpoint.
     "amount_description": "Option A",
     "name": "Jim Customer",
     "email": "customer@example.com",
-    "payment_source": {
+    "payment_method": {
       "type": "card",
       "last4": "4242",
-      "exp_month": 12,
-      "exp_year": 2018,
-      "brand": "Visa",
-      "bank_name": "Chase"
+      "brand": "Visa"
     },
     "charge_reference": "ch_3ohpsF8ra5rqjj",
     // customer_id and customer_reference are available only if the payment was from a recurring checkout
