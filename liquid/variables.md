@@ -16,11 +16,10 @@
 - `plan.payer_manage_url` - The link for the payer to manage their plan
 - `plan.name` - Payer name
 - `plan.email` - Payer email
-- `plan.payment_source.type` - Method of payment used, i.e. Credit/Debit Card or Bank Account
-- `plan.payment_source.last4` - Last four digits of the card or bank account
-- `plan.payment_source.brand` - Card Type, i.e. Visa, MasterCard, etc.
-- `plan.payment_source.bank_name` - Bank Name, i.e. Chase, Wells Fargo, etc.
-- `plan.payment_source.expiration` - The month and year the active card expires
+- `plan.payment_method.type` - Method of payment used, i.e. Credit/Debit Card or Bank Account
+- `plan.payment_method.last4` - Last four digits of the card or bank account
+- `plan.payment_method.brand` - Card Type, i.e. Visa, MasterCard, etc. or Bank Name, i.e. Chase, Wells Fargo, etc.
+- `plan.payment_method.expiration` - The month and year the active card expires
 - `plan.discount.coupon` - A description of the currently applied coupon, i.e. "10off ($10.00 off once)". This will only exist if there is an active discount. Otherwise it will be empty.
 - `plan.discount.expiration` - The date the active discount expires for this plan. This will only exist if there is an active discount. Otherwise it will be empty.
 - `plan.status` - The status of the plan (Active, Not Started, Canceled, etc.)
@@ -53,10 +52,10 @@
 - `payment.fee` - the fee in cents
 - `payment.amount_refunded` - the amount refunded in cents
 - `payment.status` - payment status in the dashboard
-- `payment.payment_source.type` - Method of payment used, i.e. Credit/Debit Card or Bank Account
-- `payment.payment_source.last4` - Last four digits of the card or bank account
-- `payment.payment_source.brand` - Card Type, i.e. Visa, MasterCard, etc.
-- `payment.payment_source.bank_name` - Bank Name, i.e. Chase, Wells Fargo, etc.
+- `payment.payment_method.type` - Method of payment used, i.e. Credit/Debit Card or Bank Account
+- `payment.payment_method.last4` - Last four digits of the card or bank account
+- `payment.payment_method.brand` - Card Type, i.e. Visa, MasterCard, etc.
+- `payment.payment_method.bank_name` - Bank Name, i.e. Chase, Wells Fargo, etc.
 - `payment.invoice` - the Stripe invoice ID
 - `payment.custom_fields` - A Hash of custom field responses based on the form. See [Custom Fields](#custom-fields) section.
 
@@ -128,12 +127,11 @@ Here is a sample of the structure of some custom field data:
 
 We are maintaining deprecated fields for backward compatibility but all new development should use the newer variables described below.
 
-- `fields` is now a hash called `custom_fields`
-- `plan.card.last4` is now `plan.payment_source.last4`
-- `plan.card.type` is now `plan.payment_source.brand`
-- `plan.card.expiration` is now `plan.payment_source.expiration`
-- `payment.card.last4` is now `payment.payment_source.last4`
-- `payment.card.type` is now `payment.payment_source.brand`
+- `plan.payment_source.last4` is now `plan.payment_method.last4`
+- `plan.payment_source.brand` is now `plan.payment_method.brand`
+- `plan.payment_source.expiration` is now `plan.payment_method.expiration`
+- `payment.payment_source.last4` is now `payment.payment_method.last4`
+- `payment.payment_source.brand` is now `payment.payment_method.brand`
 
 ## Variable Availability
 
