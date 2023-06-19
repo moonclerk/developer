@@ -100,13 +100,12 @@ MoonClerk expects to receive a **200-204 HTTP** response code from the endpoint.
     "account_balance": 0,
     "name": "Jim Customer",
     "email": "customer@example.com",
-    "payment_source": {
+    "payment_method": {
       "type": "card",
       "last4": "4242",
       "exp_month": 12,
       "exp_year": 2018,
-      "brand": "Visa",
-      "bank_name": "Chase"
+      "brand": "Visa"
     },
     "custom_id": "GHS430",
     "customer_reference": "cus_4SOZuEc4cxP5L7",

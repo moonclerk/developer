@@ -58,7 +58,7 @@ Payment Details:
 Charge Date: {{ payment.date | date: '%b %d, %Y' }}
 Bill To: {{ payment.name }}
 Amount: {{ payment.amount | money_with_currency }}
-Payment Method Last 4: {{ payment.payment_source.last4 }}{% if plan %}
+Payment Method Last 4: {{ payment.payment_method.last4 }}{% if plan %}
 
 Recurring Plan Details:
 
