@@ -104,6 +104,25 @@ Because the Address type custom field is a complex field containing multiple fie
 
 There is a special style to use for check boxes as the field can contain multiple values. For example, if you have a field called `interests` with values `sports`, `music`, and `art`, you can pass multiple values like this: `fields[interests][]=sports&fields[interests][]=music`. You must add the `[]` to the field name to indicate that it is an array of values even if there is only one value. (values are case-sensitive)
 
+###  Seeding Custom Fields when using an Embedded Checkout
+
+Since you don't have direct access to the URL, you can pass your custom field key/value pairs in the `fields` object in the `opts` variable of the embed code.
+
+```
+opts = {
+  checkoutToken: "8h7frjfytj",
+  fields: {
+    'fields[nickname]': 'Jimmy',
+    'fields[birthday]': '2025-09-15',
+    'fields[address][line1]': '123 Main St',
+    'fields[interests][]': 'sports',
+    'fields[interests][]':  'music'
+  }
+};
+```
+
+You will follow all the same naming conventions mentioned in the previous sections for the parameter name.
+
 ## Tracking a user through a checkout with a custom ID
 
 Sometimes you want to track an existing user on your system through a MoonClerk checkout. Here is the basic flow you will need to follow.
